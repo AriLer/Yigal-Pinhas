@@ -1,0 +1,68 @@
+:root {
+    --cream: #FEF4EA;
+    --light-cream: #FEFAF7;
+    --highlight: #CC663F;
+    --dark-brown:  #513126;
+
+    direction: rtl;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+html {
+}
+
+
+body {
+    background-color: var(--cream);
+}
+
+h1 {
+    font-size: 85px;
+    color: var(--dark-brown);
+    margin-top: 1rem;
+}
+
+h2 {
+    font-size: 60px;
+    color: var(--dark-brown);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+
+.action-button {
+    background-color: var(--highlight);
+    color: var(--light-cream);
+    border-radius: 10px;
+}
+
+body *{
+    border: 1px solid red;
+}
+
+.trademark {
+    color: var(--highlight);
+}
+
+
+.book-cover{
+    scale: 1;
+    transition: opacity 0.1s ease-in-out;
+    transition: transform 0.25s ease-out;
+}
+
+.book-cover:hover{
+    opacity: 0.9;
+    /* z-index: 10; */
+}
+.book-cover:active{
+    transform: scale(1.2) !important;
+    z-index: 10;
+}
+
+.active-book{
+    transform: scale(1.2) !important;
+    z-index: 10;
+}
