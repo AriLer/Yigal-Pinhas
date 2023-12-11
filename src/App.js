@@ -1,18 +1,27 @@
+import React, {useEffect} from 'react';
 import './styles/globalStyles.css';
-import {Navbar, Hero, About, Books, Papers, Courses, Footer} from './components'
+import {Home, BookSummery} from './components'
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-function App() {
+
+
+
+const App = () => {
+
+  useEffect(()=> {
+    AOS.init();
+  }, [])
+
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <About />
-      <Books />
-      <Courses />
-      <Papers />
-      <Footer />
-    </div>
-  );
+      <Router>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/book/:id" element={<BookSummery />} />
+        </Routes>
+      </Router>
+    );
 }
 
 export default App;

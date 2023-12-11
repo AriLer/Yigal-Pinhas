@@ -2,76 +2,45 @@ import React from 'react'
 import styled from 'styled-components';
 
 const FooterSection = styled.section`
-  height: 40vh;
+  height: 20vh;
   background-color: var(--dark-brown);
-  `
-const MainContainer= styled.div`
-  height: 100%;
-  width: 90%;
-  margin: auto;
   position: relative;
-  `
-
-const SectionTitle = styled.h3`
-  color: var(--light-cream);
-  font-weight: 500;
-  margin: 0;
-  margin-bottom: 1rem;
-`
-
-const Form = styled.form`
-  height: 70%;
   display: flex;
   flex-direction: column;
-  width: 35%;
-  `
+  justify-content: center;
+`
 
-const TextArea = styled.textarea`
-  resize: none;
-  height: 70%;
-`
-const SubmitButtom = styled.button`
-  margin: 0.5rem 0;
-  width: 30%;
-  height: 20%;
-`
 const CopyrightContainer = styled.div`
-  position: absolute;
+  align-items: center;
   text-align: center;
-  bottom: 0;
-  width: 100%;
   color: var(--cream);
-  font-size: 12px;
+  font-size: 0.7rem;
 `
 const Copyright = styled.p`
-
 `
+
+const Ari = styled.a`
+  color: var(--light-cream);
+  text-decoration: underline;
+`
+
+const Email = styled.p`
+  font-size: 1.1rem;
+`
+
 
 const Footer = () => {
 
-  const sendEmail = () => {
-
-  }
-
   return (
     <FooterSection>
-      <MainContainer>
-        
-      <SectionTitle>צרו קשר</SectionTitle>
-
-      <Form onSubmit={sendEmail}>
-        <TextArea type="text" placeholder='מוזמנים לפנות עם שאלות...'/>
-        <SubmitButtom className='action-button' type="submit">
-          {'שליחה >'}
-        </SubmitButtom>
-      </Form>
       <CopyrightContainer>
+        <Email>yigalpinchas@gmail.com <br/></Email>
         <Copyright>
         ד"ר פנחס יגאל Copyright © 2023 · All Rights Reserved<br/> 
-האתר נבנה ע”י ארי לרנר. לפניות נא ללחוץ כאן
+        האתר נבנה ע”י ארי לרנר. לפניות נא 
+        <Ari href='https://arilerner.netlify.app/' target="#blank"> ללחוץ כאן</Ari>
         </Copyright>
       </CopyrightContainer>
-      </MainContainer>
     </FooterSection>
   )
 }

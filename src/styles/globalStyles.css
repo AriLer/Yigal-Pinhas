@@ -6,22 +6,31 @@
 
     direction: rtl;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+    width: 100%;
+    overflow-x: hidden;
 }
 html {
+    width: 100vw;
 }
 
+body *{
+}
 
 body {
     background-color: var(--cream);
 }
 
 h1 {
-    font-size: 85px;
+    font-size: 75px;
     color: var(--dark-brown);
-    margin-top: 1rem;
+    margin-top:  1rem;
+    margin-bottom: 2rem;
+    font-weight: 600;    
 }
 
 h2 {
+    margin-top:  1rem;
+    margin-bottom: 1rem;
     font-size: 60px;
     color: var(--dark-brown);
     font-weight: 600;
@@ -31,38 +40,57 @@ h3 {
     font-size: 30px;
 }
 
+button{
+    border: none;
+    transition: filter 0.2s ease-in-out;
+}
+
+button:hover{
+    filter: brightness(0.80);
+    cursor: pointer;
+}
+
 
 .action-button {
     background-color: var(--highlight);
     color: var(--light-cream);
     border-radius: 10px;
-}
-
-body *{
-    border: 1px solid red;
+    transition: filter 0.2s ease-in-out;
 }
 
 .trademark {
     color: var(--highlight);
 }
 
-
-.book-cover{
-    scale: 1;
-    transition: opacity 0.1s ease-in-out;
-    transition: transform 0.25s ease-out;
+.pretty-shadow{
+    box-shadow:
+    0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
 }
 
-.book-cover:hover{
-    opacity: 0.9;
-    /* z-index: 10; */
-}
-.book-cover:active{
-    transform: scale(1.2) !important;
-    z-index: 10;
+
+/* XL screen > 1200px */
+/* L screen > 992px */
+/* MD screen > 768px */
+/* SM screen > 576px */
+/* XS screen < 576px */
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 65px;
+    }
 }
 
-.active-book{
-    transform: scale(1.2) !important;
-    z-index: 10;
+
+strong {
+    color: #CC663F;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
