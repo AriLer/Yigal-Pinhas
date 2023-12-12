@@ -11,6 +11,10 @@ const CoursesSeciton = styled.section`
   padding: 0 5%;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (min-width: 1440px) {
+    padding: 0 10%;
+  }
   
   @media only screen and (max-width: 768px) {
     height: 130vh;
@@ -58,6 +62,8 @@ const CourseNode = styled.div`
   padding-bottom: 2vh;
   border-radius: 15px;
   min-height: 15vh;
+
+  
   
   @media only screen and (max-width: 768px) {
     min-height: 25vh;
@@ -83,6 +89,7 @@ const LecturesList = styled.ul`
   list-style-type: none;
   padding-right: 1rem;
   font-size: .8rem;
+
   
   @media only screen and (min-width: 1200px) {
     font-size: 1rem;
@@ -90,9 +97,13 @@ const LecturesList = styled.ul`
   `
 
 const LectureItem = styled.li`
-  margin-bottom: 0px;
-  line-height: 20px;
+  margin-bottom: 0;
+  line-height: 1rem;
   
+  @media only screen and (min-width: 1440px) {
+    margin-bottom: 1rem;
+  }
+
   @media only screen and (min-width: 1200px) {
     line-height: 25px;
   }
@@ -144,13 +155,12 @@ const Courses = () => {
       <SectionTitle>קורסים</SectionTitle>
       <CourseGrid>
         {courses.map(col => 
-          <CourseCol >
+          <CourseCol key={`col-${col}`}>
             {col.map(item => {
               return (
               <Tilt>
               <CourseNode key={`course-node-${item.location}`} className='pretty-shadow'>
                 <CourseTitle>{item.location}</CourseTitle>
-                {/* <LecturesList> */}
                 <LecturesList style={{height: item.courses.length === 3 && '75px'}}>
                   {item.courses.map(l => <LectureItem>{l}</LectureItem>)}
                 </LecturesList>

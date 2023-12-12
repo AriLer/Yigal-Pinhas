@@ -10,7 +10,8 @@ export const bookNodes = [
             description: "",
             color: '#65b3e155',
             direction: "rtl",
-            coverSrc: require("../assets/client-images/holistic-fitness.png") 
+            coverSrc: require("../assets/client-images/holistic-fitness.png"),
+            purchaseUrl: "https://www.mendele.co.il/product/hakosherhaholisti/"
         },
         {
             id: 1,
@@ -23,7 +24,8 @@ export const bookNodes = [
             description: "",
             color: '#65b3e155',
             direction: "rtl",
-            coverSrc: require("../assets/client-images/complete-guide.png")
+            coverSrc: require("../assets/client-images/complete-guide.png"),
+            purchaseUrl: ""
         },
         {
             id: 2,
@@ -36,7 +38,8 @@ export const bookNodes = [
             description: "",
             direction: "ltr",
             color: '#65b3e155',
-            coverSrc: require("../assets/client-images/personal-trainer.png")
+            coverSrc: require("../assets/client-images/personal-trainer.png"),
+            purchaseUrl: "https://www.goodreads.com/book/show/160857448-be-your-own-personal-trainer"
         },
         {
             id: 3,
@@ -49,7 +52,8 @@ export const bookNodes = [
             description: "",
             direction: "ltr",
             color: '#65b3e155',
-            coverSrc: require("../assets/client-images/complete-holistic-guide.png") 
+            coverSrc: require("../assets/client-images/complete-holistic-guide.png"),
+            purchaseUrl: ""
         },
         {
             id: 4,
@@ -62,7 +66,8 @@ export const bookNodes = [
             description: "",
             direction: "rtl",
             color: '#65b3e155',
-            coverSrc: require("../assets/client-images/stretching.png")
+            coverSrc: require("../assets/client-images/stretching.png"),
+            purchaseUrl: "https://www.mendele.co.il/product/mimetihotlegmishut/"
         }
     ]
 
@@ -141,7 +146,6 @@ export const bookContent = [
         paragraphs: [
                 "Training in the gym is one of the most common sports in the Western world. Thanks to the enormous scientific development in the industry, the gym stands out as the most effective means of managing the body. The gym provides a wide range of physical, health, mental and social needs and is suitable for diverse target populations",
                 "In this book, the most up-to-date research aspects on the subject are concentrated, starting from the basic concepts, through the description of the execution of the exercises, to the construction of a personal training plan and guidelines for a sensible diet. The book contains about 200 unique illustrations that help describe and illustrate how to perform the exercises in a visual way that makes the book a useful guide",
-                "בספר כ- 300 איורים המדויקים ביותר בשחור לבן בשווי 25,000$",
                 "The complete guide to Working out in the gym with a holistic approach is intended for exercisers in general and sports teachers and fitness trainers in particular. The book is written in a structured way, which allows the reader to progress step by step, starting from his first steps in the gym to the stages of a professional and independent exerciser",
                 "",
                 "Through this book you will learn:",

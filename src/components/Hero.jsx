@@ -15,13 +15,20 @@ const HeroSection = styled.section`
   @media only screen and (max-width: 768px) {
     display: block;
   }
-`
+  @media only screen and (min-width: 1200px) {
+      padding-top: 5%;
+  }
+  `
 
 const HeroTextContainer = styled.div`
   flex: 4;
   text-align: right;
   height: 80%;
-  margin-right: 4%;
+  margin: 5%;
+  
+  @media only screen and (min-width: 1440px) {
+      margin: 10%;
+  }
 
   @media only screen and (max-width: 768px) {
     padding: 5% 0;
@@ -40,6 +47,7 @@ const HeroTextContainer = styled.div`
 
 const HeroText = styled.h1`
   margin-bottom: 0;
+  font-size: 5rem;
   `
 
 const HeroSubtitle = styled.h3`
@@ -49,6 +57,7 @@ const HeroSubtitle = styled.h3`
 const HeroDesc = styled.p`
   color: gray;
   margin-bottom: 2rem;
+  width: 75%;
   @media only screen and (max-width: 768px) {
     width: 65%;
     margin: auto;
@@ -165,7 +174,7 @@ const Hero = ({targetRef}) => {
           קראו עוד
         </ActionButton>
       </HeroTextContainer>
-      <Tilt style={{ flex: 3, margin: '3% 0', position: 'relative', width: '40%', height: '80%', left: '-1%'}}>
+      <Tilt style={{ flex: 3, margin: '5% 0', position: 'relative', width: '40%', height: '80%', left: '-1%'}}>
       <HeroImageContainer 
         data-aos='fade-up' data-aos-duration='2000'
       >

@@ -8,6 +8,10 @@ const FooterSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
+  @media only screen and (min-width: 1440px) {
+    height: 15vh;
+  }
 `
 
 const CopyrightContainer = styled.div`
@@ -25,7 +29,7 @@ const Ari = styled.a`
 `
 
 const Email = styled.p`
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 `
 
 
@@ -36,9 +40,11 @@ const Footer = () => {
       <CopyrightContainer>
         <Email>yigalpinchas@gmail.com <br/></Email>
         <Copyright>
+        
         ד"ר פנחס יגאל Copyright © 2023 · All Rights Reserved<br/> 
-        האתר נבנה ע”י ארי לרנר. לפניות נא 
-        <Ari href='https://arilerner.netlify.app/' target="#blank"> ללחוץ כאן</Ari>
+        Built with ❤️ by &nbsp;
+        <Ari href='https://arilerner.netlify.app/' target="#blank">Ari Lerner</Ari>
+        . &nbsp;App icons by <Ari href='https://icons8.com/' target='icons'>icons8</Ari> 
         </Copyright>
       </CopyrightContainer>
     </FooterSection>

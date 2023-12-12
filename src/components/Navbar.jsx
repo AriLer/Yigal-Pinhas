@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
-import BackIcon from '../assets/internal-images/icons8-back-50.png'
 
 const NavbarContainer = styled.div`
     overflow: hidden;
@@ -16,24 +15,22 @@ const NavbarContainer = styled.div`
 `
 
 const HomeLink = styled.button`
-    margin: 1rem 5%;
-    margin-right: 4%;
-    color: var(--dark-brown);
+    margin: 1% 5%;
     display: inline-block;
     font-weight: bold;
     font-size: 1.4rem;
-    margin-left: 2rem;
     display: flex;
     align-items: center;
-    background-color: var(--cream);
+    background-color: #d0d0d0;
     padding: 15px;
     border-radius: 10px;
+    text-align: center;
 `
 
 const Back = styled.img`
     height: 5vh;
-    margin-left: 10px;
     transform: rotate(180deg);
+    margin-right: -5px;
 `
 
 
@@ -45,7 +42,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
         <HomeLink onClick={goHome}>
-            <Back src={BackIcon}/>
+            <Back src="https://img.icons8.com/pastel-glyph/64/back.png" alt="back"/>
             לעמוד הראשי
         </HomeLink>
     </NavbarContainer>

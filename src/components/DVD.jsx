@@ -12,6 +12,10 @@ const Section = styled.section`
   padding: 0 5%;
   overflow: hidden;
   
+  @media only screen and (min-width: 1440px) {
+    padding: 0 10%;
+  }
+  
   @media only screen and (max-width: 992px) {
     height: 110vh;
   }
@@ -21,30 +25,30 @@ const Section = styled.section`
   }
 
   @media only screen and (max-width: 576px) {
-    height: 250vh;
+    height: 270vh;
   }
 `
 
 const MainContent =  styled.div`
-  height: 75%;
+  height: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 5%;
+  gap: 4%;
   
   @media only screen and (max-width: 576px) {
     flex-direction: column;
+    height: 85%;
+    justify-content: space-around;
+    gap: 0%;
   }
 `
 const TextContent =  styled.div`
   width: 85%;
   flex: 4;
   
-  @media only screen and (max-width: 768px) {
-    
-  }
-  
   @media only screen and (max-width: 576px) {
+    flex: 3;
     width: 90%;
     text-align: justify;
     margin: auto;
@@ -54,6 +58,11 @@ const TextContent =  styled.div`
 const Rational = styled.p`
   text-align: justify;
   line-height: 1.4;
+
+  @media only screen and (min-width: 1440px) {
+      line-height: 1.7;
+  }
+
   @media only screen and (max-width: 768px) {
     line-height: 1.5;
   }
@@ -71,12 +80,10 @@ const Gallery = styled.div`
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-end;
-    gap: 1rem;
+    gap: .8rem;
   }
   @media only screen and (max-width: 576px) {
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
     width: 90%;
     margin: auto;
   }
@@ -90,9 +97,20 @@ const GalleryItem = styled.img`
     width: 70%;
   }
   @media only screen and (max-width: 576px) {
-    width: 45%;
+    width: 70%;
+    height: 20%;
   }
 `
+
+const Purchase = styled.h3`
+  font-size: 1.3rem ;
+  text-align: right;
+`
+
+const Email = styled.span`
+  font-weight: 400;
+`
+
 
 const Credit = styled.p`
   font-size: .85rem;
@@ -133,6 +151,7 @@ const DVD = () => {
             בין הידע המחקרי האקדמי
              בתחומים של מדעי גוף האדם לבין עשייה מושכלת ונבונה שיובילו לאורך חיים בריא
             </Rational>
+            <Purchase>לרכישה צרו קשר <Email>yigalpinchas@gmail.com</Email></Purchase>
           </TextContent>
         <Gallery>
             <GalleryItem src={img1} alt={""}/>

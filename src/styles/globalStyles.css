@@ -13,15 +13,12 @@ html {
     width: 100vw;
 }
 
-body *{
-}
-
 body {
     background-color: var(--cream);
 }
 
 h1 {
-    font-size: 75px;
+    font-size: 4.7rem;
     color: var(--dark-brown);
     margin-top:  1rem;
     margin-bottom: 2rem;
@@ -31,13 +28,13 @@ h1 {
 h2 {
     margin-top:  1rem;
     margin-bottom: 1rem;
-    font-size: 60px;
+    font-size: 3.75rem;
     color: var(--dark-brown);
     font-weight: 600;
 }
 
 h3 {
-    font-size: 30px;
+    font-size: 2rem;
 }
 
 button{
@@ -49,7 +46,6 @@ button:hover{
     filter: brightness(0.80);
     cursor: pointer;
 }
-
 
 .action-button {
     background-color: var(--highlight);
@@ -72,13 +68,6 @@ button:hover{
     ;
 }
 
-
-/* XL screen > 1200px */
-/* L screen > 992px */
-/* MD screen > 768px */
-/* SM screen > 576px */
-/* XS screen < 576px */
-
 @media only screen and (max-width: 768px) {
     h1 {
         font-size: 65px;
@@ -91,6 +80,6 @@ strong {
 }
 
 a{
-    text-decoration: none;
-    color: black;
+    /* text-decoration: none; */
+    /* color: black; */
 }

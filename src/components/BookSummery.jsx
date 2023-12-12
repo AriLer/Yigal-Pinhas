@@ -14,21 +14,21 @@ const Section = styled.section`
 
 const Title = styled.h2`
     width: 70%;
+    margin-bottom: 2rem;
 `
 
 const SubHeading = styled.h4`   
+`
+
+const Email = styled.span`
+    font-weight: 400;
+    font-size: 25px;
 `
 
 const Blob = styled.img`
     position: absolute;
     top: -75vh;
     z-index: -10;
-`
-
-const Points = styled.ul`
-`
-
-const Point = styled.li`   
 `
 
 const BookSummery = () => {
@@ -60,12 +60,24 @@ const BookSummery = () => {
                 </div>
             )}
             {content.points && 
-                <Points>
-                    {content.points.map(p=>(
-                        <Point>{p}</Point>
-                    ))
-                    }
-                </Points>
+                <ul>
+                    {content.points.map(p=> <li>{p}</li>)}
+                </ul>
+            }
+            {node.purchaseUrl ? 
+                <div>
+                    <h3>{node.direction === 'rtl' ? 'לרכישה': 'Purchase'}</h3>
+                    <a href={node.purchaseUrl} target='#blank'>{node.purchaseUrl}</a>
+                </div>
+            :
+                (node.direction === 'rtl' ? 
+                (<h3>
+                    לרכישה צרו קשר <br/> <Email>yigalpinchas@gmail.com</Email>
+                </h3>) :
+                (<h3>
+                    Sorry, item is not longer available or purchase
+                </h3>)
+                )
             }
         </Section>
         <Books heading="ספרים נוספים" active={id} hideActive={true}/>

@@ -9,13 +9,17 @@ const AboutSection = styled.section`
   position: relative;
   padding: 1% 5%;
   background-color: var(--light-cream);
-
+  
   @media only screen and (max-width: 768px) {
     height: 150vh;
   }
 
   @media only screen and (max-width: 576px) {
     height: 170vh;
+  }
+
+  @media only screen and (min-width: 1440px) {
+      padding: 1% 10%;
   }
 `
 

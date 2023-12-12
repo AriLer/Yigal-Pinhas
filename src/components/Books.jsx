@@ -11,10 +11,16 @@ const BooksSection = styled.section`
   position: relative;
   padding: 2.5vh 5%;
   overflow: hidden;
+  justify-content: center;
   
+  @media only screen and (min-width: 1440px) {
+      padding: 2.5vh 10%;
+  }
+
   @media only screen and (max-width: 768px) {
     height: 175vh;
   }
+  
 `
 
 const MainContainer = styled.div`
@@ -25,6 +31,10 @@ const MainContainer = styled.div`
   margin: auto;
   height: 75%;
   gap: 3rem;
+  
+  @media only screen and (min-width: 1440px) {
+    width: 100%;
+  }
 
   @media only screen and (max-width: 768px) {
     flex-direction: column;
@@ -37,7 +47,12 @@ const BookCarouselContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  text-align: center; 
+  text-align: center;
+
+  @media only screen and (min-width: 1440px) {
+      padding-left: 2%;
+  }
+  
   @media only screen and (max-width: 576px) {
     flex: 1;
   }
@@ -86,6 +101,10 @@ const BookCover = styled.img`
   &:hover {
     transform: translateY(-10px);
   }
+  @media only screen and (min-width: 1440px) {
+    height: 40vh;
+    width: 90%;
+  }
 
   @media only screen and (max-width: 576px) {
     height: 35vh;
@@ -121,8 +140,15 @@ const ActiveIndicator = styled.div`
 
 const BookDescContainer = styled.div`
   flex: 2;
-  height: 87%;
-  padding: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0% 3.5%;
+  padding-bottom: 2rem;
+  
+  @media only screen and (min-width: 1440px) {
+    flex: 1;
+  }
 
   @media only screen and (max-width: 768px) {
     text-align: center;
@@ -130,13 +156,18 @@ const BookDescContainer = styled.div`
 `
 
 const BookDescTitle = styled.h3`
-  margin-top: 2%;
+  margin-bottom: 0;
 `
 
 const BookDesc = styled.p`
   color: gray;
-  width: 80%;
+  width: 100%;
   line-height: 1.3rem;
+  
+  @media only screen and (min-width: 1440px) {
+      line-height: 1.7;
+  }
+
   @media only screen and (max-width: 768px) {
    margin: auto;
    margin-bottom: 5%;
@@ -208,7 +239,7 @@ const Books = ({heading, active, hideActive}) => {
         <BookCarouselContainer>
           <BookCarousel>
             {nodes.map((book, idx) => {
-                const offset = (hideActive ? 20 : 0) 
+                const offset = (hideActive ? 20 : - 5) 
                 let DIST = Math.abs(nodes.indexOf(currActive) - idx)        
                 let OFF_SET = Math.log(10)*(nodes.indexOf(currActive) - idx) + (50 * idx / winW) + offset;
                 let SIZE_TRANSFORM = (1 / (DIST * Math.log(9))) + 0.5
