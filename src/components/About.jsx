@@ -54,7 +54,7 @@ const MainContainer = styled.div`
 `
 
 
-const AboutTextContainer = styled.p`
+const AboutTextContainer = styled.div`
   flex: 4;
   margin: 0;
   display: flex;

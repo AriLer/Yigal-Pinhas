@@ -154,15 +154,15 @@ const Courses = () => {
       <Girl src={GirlStudyingSVG} alt='Blob'/>
       <SectionTitle>קורסים</SectionTitle>
       <CourseGrid>
-        {courses.map(col => 
-          <CourseCol key={`col-${col}`}>
+        {courses.map((col, idx) => 
+          <CourseCol key={`col-${idx}`}>
             {col.map(item => {
               return (
-              <Tilt>
-              <CourseNode key={`course-node-${item.location}`} className='pretty-shadow'>
-                <CourseTitle>{item.location}</CourseTitle>
+              <Tilt key={`course-node-${item.location}`}>
+              <CourseNode className='pretty-shadow'>
+                <CourseTitle >{item.location}</CourseTitle>
                 <LecturesList style={{height: item.courses.length === 3 && '75px'}}>
-                  {item.courses.map(l => <LectureItem>{l}</LectureItem>)}
+                  {item.courses.map(l => <LectureItem key={`lecture-item-${l}`}>{l}</LectureItem>)}
                 </LecturesList>
               </CourseNode>
               </Tilt>

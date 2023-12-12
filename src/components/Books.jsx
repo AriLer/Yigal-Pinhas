@@ -250,10 +250,13 @@ const Books = ({heading, active, hideActive}) => {
                   zIndex: Z_INDEX_OFF_SET,
                 }
                 
-                return (<InnerContainer style={style}>
+                return (
+                <InnerContainer
+                  style={style}
+                  key={`book-cover-${book.name}`} 
+                 >
                   <BookCover
                     onClick={()=>setCurrActive(book)}
-                    key={`book-cover-${book.name}`} 
                     src={book.coverSrc} 
                     alt={book.name}
                     />
