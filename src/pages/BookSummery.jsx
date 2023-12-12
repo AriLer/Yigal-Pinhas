@@ -1,9 +1,10 @@
 import React from 'react'
 import {bookNodes, bookContent} from '../static/books'
 import styled from 'styled-components' 
-import {Books, Footer} from './index'
+import {Books, Footer} from '../components/index'
 import BlobSVG from '../assets/internal-images/heroBlob.svg'
-import Navbar from './Navbar'
+import Navbar from '../components/Navbar'
+import {useLocation} from 'react-router-dom'
 
 const Section = styled.section`
     position: relative;
@@ -17,12 +18,9 @@ const Title = styled.h2`
     margin-bottom: 2rem;
 `
 
-const SubHeading = styled.h4`   
-`
-
 const Email = styled.span`
     font-weight: 400;
-    font-size: 25px;
+    font-size: 1.5rem;
 `
 
 const Blob = styled.img`
@@ -32,8 +30,13 @@ const Blob = styled.img`
 `
 
 const BookSummery = () => {
-    let id = window.location.href
-    id = id[id.length - 1]
+
+    const location = useLocation()
+    console.log("location: ", location.state.id);
+
+    // let id = window.location.href
+    // id = id[id.length - 1]
+    let id = location.state.id
     const node = bookNodes[id]
     const content = bookContent[id]
 
@@ -52,10 +55,10 @@ const BookSummery = () => {
                 alt='blob'
             />
             <Title> {node.name} </Title>
-            {content.subHeading &&<SubHeading>{content.subHeading}</SubHeading>}
+            {content.subHeading &&<h4>{content.subHeading}</h4>}
             {content.paragraphs.map(p => 
                 <div>
-                    {p.heading && <SubHeading>{p.heading}</SubHeading>}
+                    {p.heading && <h4>{p.heading}</h4>}
                     <p>{p.content ? p.content : p}</p>
                 </div>
             )}

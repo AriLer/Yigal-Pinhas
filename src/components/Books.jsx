@@ -221,7 +221,8 @@ const Books = ({heading, active, hideActive}) => {
   const navigate = useNavigate();
   
   const handleReadMore = () => {
-    navigate(`/book/${currActive.id}`)
+    console.log("currActive: ", currActive.id);
+    navigate(`/books`, {state:currActive})
     window.location.reload(true)
     window.scrollTo(0, 0)
   }

@@ -15,8 +15,8 @@ const HeroSection = styled.section`
   @media only screen and (max-width: 768px) {
     display: block;
   }
-  @media only screen and (min-width: 1200px) {
-      padding-top: 5%;
+  @media only screen and (min-width: 1440px) {
+      padding-top: 10%;
   }
   `
 

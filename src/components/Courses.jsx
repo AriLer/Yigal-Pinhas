@@ -39,7 +39,7 @@ const CourseGrid = styled.div`
   display: flex;
   flex-direction: row-reverse;
   gap: 3%;
-
+  
   @media only screen and (max-width: 576px) {
     flex-direction: column;
   }
@@ -62,8 +62,10 @@ const CourseNode = styled.div`
   padding-bottom: 2vh;
   border-radius: 15px;
   min-height: 15vh;
-
   
+  @media only screen and (min-width: 1440px) {
+    padding: 3vh 6%;
+  }
   
   @media only screen and (max-width: 768px) {
     min-height: 25vh;
@@ -90,7 +92,6 @@ const LecturesList = styled.ul`
   padding-right: 1rem;
   font-size: .8rem;
 
-  
   @media only screen and (min-width: 1200px) {
     font-size: 1rem;
   }
