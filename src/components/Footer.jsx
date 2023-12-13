@@ -2,23 +2,19 @@ import React from 'react'
 import styled from 'styled-components';
 
 const FooterSection = styled.section`
-  height: 20vh;
+  min-height: 15vh;
   background-color: var(--dark-brown);
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   
-  @media only screen and (min-width: 1440px) {
-    height: 15vh;
-  }
 `
 
 const CopyrightContainer = styled.div`
-  align-items: center;
   text-align: center;
   color: var(--cream);
   font-size: 0.7rem;
+  margin: .5rem;
 `
 const Copyright = styled.p`
 `
@@ -39,12 +35,11 @@ const Footer = () => {
     <FooterSection>
       <CopyrightContainer>
         <Email>yigalpinchas@gmail.com <br/></Email>
-        <Copyright>
-        
-        ד"ר פנחס יגאל Copyright © 2023 · All Rights Reserved<br/> 
-        Built with ❤️ by &nbsp;
-        <Ari href='https://arilerner.netlify.app/' target="#blank">Ari Lerner</Ari>
-        . &nbsp;App icons by <Ari href='https://icons8.com/' target='icons'>icons8</Ari> 
+        <Copyright>      
+          ד"ר פנחס יגאל Copyright © 2023 · All Rights Reserved<br/> 
+          Built with ❤️ by &nbsp;
+          <Ari href='https://arilerner.netlify.app/' target="#blank">Ari Lerner</Ari>
+          . &nbsp;App icons by <Ari href='https://icons8.com/' target='icons'>icons8</Ari> 
         </Copyright>
       </CopyrightContainer>
     </FooterSection>

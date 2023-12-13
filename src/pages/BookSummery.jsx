@@ -10,78 +10,110 @@ const Section = styled.section`
     position: relative;
     padding: 5%;
     padding-top: 10%;
-    overflow-x: hidden;
+    overflow: hidden;
+    min-height: 100vh;
+    
+    @media only screen and (min-width: 1440px) {
+        padding: 5% 10%;
+    }
 `
 
 const Title = styled.h2`
     width: 70%;
     margin-bottom: 2rem;
+    
+    @media only screen and (max-width: 576px) {
+        margin-top: 4rem;
+        font-size: 3.5rem;
+        width: 95%;
+    }
+`
+
+
+const Content = styled.div`
+    line-height: 1.5rem;
+`
+
+const Purchase = styled.a`
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 2rem;
 `
 
 const Email = styled.span`
+    margin-top: 1rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    font-size: 1.5rem;
 `
 
 const Blob = styled.img`
     position: absolute;
     top: -75vh;
     z-index: -10;
+
 `
 
 const BookSummery = () => {
 
     const location = useLocation()
-    console.log("location: ", location.state.id);
-
-    // let id = window.location.href
-    // id = id[id.length - 1]
+    
     let id = location.state.id
     const node = bookNodes[id]
     const content = bookContent[id]
 
+    const scaler1 = window.innerWidth > 576 ? 10 : 2
+    const scaler2 = window.innerWidth > 576 ? 1 : 20
+
     const blobStyle = {
-        left: `${node.direction === 'rtl' ? '-8%': ''}`,
-        right: `${node.direction === 'rtl' ? '': '0%'}`,
-        transform: `scaleX(${node.direction === 'rtl' ? '': '-1'})`
+        top: `${node.direction === 'rtl' ? '-75vh': '-82vh'}`,
+        left: `${node.direction === 'rtl' ? `-${120 / scaler1}%`: ''}`,
+        right: `${node.direction === 'rtl' ? '': `-${1 * scaler2}%`}`,
+        transform: `scaleX(${node.direction === 'rtl' ? '1': '-1'})`
     }
     return (
         <>
         <Section style={{direction: node.direction}}>
-        <Navbar />
+        <Navbar direction={node.direction}/>
             <Blob
                 style={blobStyle} 
                 src={BlobSVG} 
                 alt='blob'
             />
-            <Title> {node.name} </Title>
-            {content.subHeading &&<h4>{content.subHeading}</h4>}
-            {content.paragraphs.map(p => 
-                <div>
-                    {p.heading && <h4>{p.heading}</h4>}
-                    <p>{p.content ? p.content : p}</p>
-                </div>
-            )}
-            {content.points && 
-                <ul>
-                    {content.points.map(p=> <li>{p}</li>)}
-                </ul>
-            }
-            {node.purchaseUrl ? 
-                <div>
-                    <h3>{node.direction === 'rtl' ? 'לרכישה': 'Purchase'}</h3>
-                    <a href={node.purchaseUrl} target='#blank'>{node.purchaseUrl}</a>
-                </div>
-            :
-                (node.direction === 'rtl' ? 
-                (<h3>
-                    לרכישה צרו קשר <br/> <Email>yigalpinchas@gmail.com</Email>
-                </h3>) :
-                (<h3>
-                    Sorry, item is not longer available or purchase
-                </h3>)
-                )
-            }
+            <Title>{node.name}</Title>
+            
+            <Content>
+                {content.subHeading &&<h4>{content.subHeading}</h4>}
+                {content.paragraphs.map(p => 
+                    <div>
+                        {p.heading && <h4>{p.heading}</h4>}
+                        <p>{p.content ? p.content : p}</p>
+                    </div>
+                )}
+                {content.points && 
+                    <ul>
+                        {content.points.map(p=> <li>{p}</li>)}
+                    </ul>
+                }
+                {node.purchaseUrl ? 
+                    <div>
+                        <h3 style={{lineHeight: '2.5rem'}}>
+                            {node.direction === 'rtl' ? 'לרכישת הספר': 'To purchase the book'} &nbsp; <br/>
+                            <Purchase href={node.purchaseUrl} target='#blank'>
+                            {node.direction === 'rtl' ? 'לחצו כאן': 'Click here'}
+                            </Purchase>
+                        </h3>
+                    </div>
+                :
+                    (node.direction === 'rtl' ? 
+                    (<h3 style={{lineHeight: '2.5rem'}}>
+                        לרכישה צרו קשר <br/> <Email>yigalpinchas@gmail.com</Email>
+                    </h3>) :
+                    (<h4>
+                        Sorry, this item is not longer available
+                    </h4>)
+                    )
+                }
+            </Content>
         </Section>
         <Books heading="ספרים נוספים" active={id} hideActive={true}/>
         <Footer/>

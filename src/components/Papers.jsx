@@ -5,32 +5,28 @@ import BlobSVG from '../assets/internal-images/heroBlob.svg'
 
 const PapersSection = styled.section`
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--cream);
   padding: 0 5%;
   overflow: hidden;
-  
-  @media only screen and (max-width: 768px) {
-    height: 110vh;
-  }
-
-  @media only screen and (max-width: 576px) {
-    height: 180vh;
-  }
 `
 
 const ListContainer = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  height: 75%;
+  gap: 1rem;
+
+  @media only screen and (max-width: 576px) {
+    height: 85%;
+  }
 `
 
 const ListItem = styled.button`
+  flex: 0 0 calc(25% - 1rem);
   border-radius: 10px;
   background-color: var(--light-cream);
-  width: 32%;
-  height: 18%;
+  min-height: 6rem;
   z-index: 2;  
   box-shadow:
   0 1px 1px hsl(0deg 0% 0% / 0.015),
@@ -39,18 +35,14 @@ const ListItem = styled.button`
   0 8px 8px hsl(0deg 0% 0% / 0.015),
   0 16px 16px hsl(0deg 0% 0% / 0.015)
   ;
-  padding: 0;
+  padding: 1.5rem;
   
-  @media only screen and (min-width: 1440px) {
-    padding: 0 3%;
+  @media only screen and (max-width: 768px) {
+    flex: 0 0 calc(33% - 1rem);
   }
-  
-  @media only screen and (max-width: 992px) {
-    height: 85px;
-  }
+
   @media only screen and (max-width: 576px) {
-    width: 47%;
-    height: 12%;
+    flex: 0 0 calc(50% - 1rem);
   }
   `
 

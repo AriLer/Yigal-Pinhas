@@ -5,18 +5,10 @@ import YigalImg from './../assets/client-images/Yigal 2.JPG'
 import GroceriesSVG from './../assets/internal-images/Bag of groceries.svg'
 
 const AboutSection = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   padding: 1% 5%;
   background-color: var(--light-cream);
-  
-  @media only screen and (max-width: 768px) {
-    height: 150vh;
-  }
-
-  @media only screen and (max-width: 576px) {
-    height: 170vh;
-  }
 
   @media only screen and (min-width: 1440px) {
       padding: 1% 10%;
@@ -39,13 +31,12 @@ const MainContainer = styled.div`
   justify-content: space-around;
   flex-direction: row-reverse;
   gap: 1.5rem;
-  height: 70vh;
+  height: 70%;
   
   @media only screen and (max-width: 768px) {
     flex-direction: column-reverse;
     width: 100%;
-    height: 120vh;
-    gap: 0;
+    margin-bottom: 2rem;
   }
 
   @media only screen and (max-width: 576px) {

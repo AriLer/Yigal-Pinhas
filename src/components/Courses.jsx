@@ -7,53 +7,44 @@ import {courses} from '../static/courses'
 import Tilt from './Tilt';
 
 const CoursesSeciton = styled.section`
-  height: 115vh;
+  min-height: 100vh;
   padding: 0 5%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   overflow: hidden;
 
   @media only screen and (min-width: 1440px) {
     padding: 0 10%;
   }
-  
-  @media only screen and (max-width: 768px) {
-    height: 130vh;
-  }
-  
-  @media only screen and (max-width: 576px) {
-    height: 205vh;
-  }
 `
 
 const SectionTitle = styled.h2`
   text-align: end;
-  
+
   @media only screen and (max-width: 576px) {
     text-align: start;
   }
 `
 
 const CourseGrid = styled.div`
-  width: 100%;
-  height: 75%;
   display: flex;
   flex-direction: row-reverse;
   gap: 3%;
+  margin-bottom: 2rem;
   
   @media only screen and (max-width: 576px) {
     flex-direction: column;
+    gap: 0%;
   }
-  `
+`
 
 const CourseCol = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  @media only screen and (max-width: 576px) {
-    gap: 1.4rem;
-  }
 `
 
 const CourseNode = styled.div`
@@ -62,9 +53,10 @@ const CourseNode = styled.div`
   padding-bottom: 2vh;
   border-radius: 15px;
   min-height: 15vh;
-  
+  margin-bottom: 1rem;
+
   @media only screen and (min-width: 1440px) {
-    padding: 3vh 6%;
+    padding: 2vh 6%;
   }
   
   @media only screen and (max-width: 768px) {
@@ -81,28 +73,24 @@ const CourseTitle = styled.h4`
   font-size: 1.5rem;
   font-weight: 600;
   margin: 1rem auto 0rem auto;
- 
-  @media only screen and (max-width: 768px) {
-    font-size: 1.4rem;
-  }
 `
 
 const LecturesList = styled.ul`
   list-style-type: none;
   padding-right: 1rem;
-  font-size: .8rem;
+  font-size: .9rem;
 
   @media only screen and (min-width: 1200px) {
     font-size: 1rem;
   }
-  `
+`
 
 const LectureItem = styled.li`
-  margin-bottom: 0;
-  line-height: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2rem;
   
   @media only screen and (min-width: 1440px) {
-    margin-bottom: 1rem;
+    margin-bottom: 0.7vh
   }
 
   @media only screen and (min-width: 1200px) {
@@ -129,8 +117,12 @@ const Girl = styled.img`
   z-index: -10;
   right: 25%;
   top: .5rem;
-  height: 200px;
+  height: 25%;
   
+  @media only screen and (min-width: 1440px) {
+    right: 25%;
+  }
+
   @media only screen and (max-width: 768px) {
     display: none;
   }

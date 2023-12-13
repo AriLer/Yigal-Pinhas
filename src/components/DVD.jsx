@@ -8,24 +8,12 @@ import img4 from '../assets/client-images/gallery-4.png'
 
 const Section = styled.section`
   background-color: var(--light-cream);
-  height: 100vh;
+  min-height: 100vh;
   padding: 0 5%;
   overflow: hidden;
   
   @media only screen and (min-width: 1440px) {
     padding: 0 10%;
-  }
-  
-  @media only screen and (max-width: 992px) {
-    height: 110vh;
-  }
-  
-  @media only screen and (max-width: 768px) {
-    height: 150vh;
-  }
-
-  @media only screen and (max-width: 576px) {
-    height: 270vh;
   }
 `
 
@@ -35,7 +23,8 @@ const MainContent =  styled.div`
   flex-direction: row;
   justify-content: space-between;
   gap: 4%;
-  
+  margin-bottom: 2rem;
+
   @media only screen and (max-width: 576px) {
     flex-direction: column;
     height: 85%;

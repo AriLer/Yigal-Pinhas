@@ -7,34 +7,22 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const BooksSection = styled.section`
-  height: 100vh;
-  position: relative;
+  min-height: 100vh;
   padding: 2.5vh 5%;
   overflow: hidden;
-  justify-content: center;
   
   @media only screen and (min-width: 1440px) {
       padding: 2.5vh 10%;
   }
-
-  @media only screen and (max-width: 768px) {
-    height: 175vh;
-  }
-  
 `
 
 const MainContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: row;
   width: 100%;
   margin: auto;
-  height: 75%;
+  min-height: 70vh;
   gap: 3rem;
-  
-  @media only screen and (min-width: 1440px) {
-    width: 100%;
-  }
 
   @media only screen and (max-width: 768px) {
     flex-direction: column;
@@ -42,18 +30,17 @@ const MainContainer = styled.div`
 `
 
 const BookCarouselContainer = styled.div`
-  flex: 3;
-  height: 94%;
+  flex: 4;
   position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
 
   @media only screen and (min-width: 1440px) {
-      padding-left: 2%;
+    padding-left: 2%;
   }
-  
-  @media only screen and (max-width: 576px) {
+    
+  @media only screen and (max-width: 768px) {
     flex: 1;
   }
 `
@@ -61,11 +48,11 @@ const BookCarouselContainer = styled.div`
 const BookCarousel = styled.div`
   margin: 10% 0;
   display: flex;
-  height: 80%;
   justify-content: flex-end;
-
-  @media only screen and (max-width: 576px) {
-    height: 40vh;
+  min-height: 20rem;
+  
+  @media only screen and (max-width: 768px) {
+    height: 45vh;
   }
 `
 
@@ -86,9 +73,11 @@ const InnerContainer = styled.div`
     height: 35vh;
     width: 35%;
   }
-  `
+`
+
 const BookCover = styled.img`
-  height: 45vh;
+  min-height: 15rem;
+  height: 44vh;
   width: 100%;
   transition: transform .25s ease-in-out;
   box-shadow:
@@ -107,7 +96,7 @@ const BookCover = styled.img`
   }
 
   @media only screen and (max-width: 576px) {
-    height: 35vh;
+    height: 32vh;
   }
 `
 
@@ -139,24 +128,36 @@ const ActiveIndicator = styled.div`
 `
 
 const BookDescContainer = styled.div`
-  flex: 2;
+  flex: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0% 3.5%;
   padding-bottom: 2rem;
   
   @media only screen and (min-width: 1440px) {
+    flex: 2;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
     flex: 1;
   }
-
-  @media only screen and (max-width: 768px) {
-    text-align: center;
+  
+  @media only screen and (max-width: 576px) {
+    width: 100%;
+    padding: 17% 0;
   }
-`
+  `
 
 const BookDescTitle = styled.h3`
   margin-bottom: 0;
+  
+  @media only screen and (max-width: 576px) {
+    margin-bottom: 1.5rem;
+  }
 `
 
 const BookDesc = styled.p`
@@ -171,6 +172,7 @@ const BookDesc = styled.p`
   @media only screen and (max-width: 768px) {
    margin: auto;
    margin-bottom: 5%;
+   text-align: justify;
   }
   
   @media only screen and (max-width: 576px) {
@@ -185,16 +187,16 @@ const ActionButton = styled.button`
   font-size: 1rem;
   background-color: #234E76;
   color: var(--cream);
-`
-
-const RiceBowl = styled.img`
-  position: absolute;
-  top: 0;
-  left: 5%;
-  width: 12vw;
-
+  
   @media only screen and (max-width: 768px) {
-    text-align: center;
+    height: 4rem;
+    width: 7rem;
+  }
+  @media only screen and (max-width: 576px) {
+    height: 4rem;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    width: 9rem;
   }
 `
 
@@ -221,9 +223,10 @@ const Books = ({heading, active, hideActive}) => {
   const navigate = useNavigate();
   
   const handleReadMore = () => {
+    const temp = bookNodes.filter((book, idx) => idx != currActive.id)
+    setCurrActive(temp[0])
     console.log("currActive: ", currActive.id);
     navigate(`/books`, {state:currActive})
-    window.location.reload(true)
     window.scrollTo(0, 0)
   }
   
@@ -235,11 +238,11 @@ const Books = ({heading, active, hideActive}) => {
   return (
     <BooksSection style={{backgroundColor: (currActive.color || '#65b3e155')}}>
       <h2>{heading}</h2>
-      <RiceBowl src={Bowl} alt='rice-bowl-image'/>
       <MainContainer>
         <BookCarouselContainer>
           <BookCarousel>
             {nodes.map((book, idx) => {
+              // console.log("book: ", book);
                 const offset = (hideActive ? 20 : - 5) 
                 let DIST = Math.abs(nodes.indexOf(currActive) - idx)        
                 let OFF_SET = Math.log(10)*(nodes.indexOf(currActive) - idx) + (50 * idx / winW) + offset;
