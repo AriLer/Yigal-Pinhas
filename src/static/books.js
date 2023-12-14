@@ -11,7 +11,7 @@ export const bookNodes = [
             color: '#65b3e155',
             direction: "rtl",
             coverSrc: require("../assets/client-images/holistic-fitness.png"),
-            purchaseUrl: "https://www.mendele.co.il/product/hakosherhaholisti/"
+            purchaseUrl: "https://www.mendele.co.il/product_author/%D7%93%D7%A8-%D7%99%D7%92%D7%90%D7%9C-%D7%A4%D7%A0%D7%97%D7%A1/"
         },
         {
             id: 1,
@@ -67,7 +67,7 @@ export const bookNodes = [
             direction: "rtl",
             color: '#65b3e155',
             coverSrc: require("../assets/client-images/stretching.png"),
-            purchaseUrl: "https://www.mendele.co.il/product/mimetihotlegmishut/"
+            purchaseUrl: "https://www.mendele.co.il/product_author/%D7%93%D7%A8-%D7%99%D7%92%D7%90%D7%9C-%D7%A4%D7%A0%D7%97%D7%A1/"
         }
     ]
 

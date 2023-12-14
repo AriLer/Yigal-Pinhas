@@ -13,7 +13,7 @@ export const papers = [
         url: require('./reports/sport-focus.pdf')
     },
     {
-        name: 'השפעת שילוב מולטימדיה בתוכנית הוראה בקרב סטודנטים',
+        name: 'השפעת שילוב המולטימדיה בתוכנית הוראה בקרב סטודנטים',
         url: require('./reports/multimedia-students.pdf')
     },
     {
@@ -29,7 +29,7 @@ export const papers = [
         url: require('./reports/active-colture.pdf')
     },
     {
-        name: 'יתרונות ומגבלות חדר כושר',
+        name: 'יתרונות ומגבלות חדר הכושר',
         url: require('./reports/gym-pros-cons.pdf')
     },
     {

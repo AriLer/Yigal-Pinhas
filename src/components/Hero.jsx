@@ -165,22 +165,22 @@ const Hero = ({targetRef}) => {
    <HeroSection id="main">
       <HeroTextContainer>
         <HeroText 
-          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
         >
           {'ד"ר יגאל פנחס'}
         </HeroText>
         <HeroSubtitle 
-          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
         >
           פעילות גופנית וקידום בריאות
         </HeroSubtitle>
         <HeroDesc 
-          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
         >
           מרצה בכיר במכללת סמינר הקיבוצים, מורה לחינוך גופני בבתי ספר תיכוניים בתל־אביב. פרופסור אורח באוניברסיטת קלגרי שבקנדה
         </HeroDesc>
         <ActionButton 
-          // data-aos='fade-in' data-aos-duration='2000' data-aos-delay="2500"
+          data-aos='fade-in' data-aos-duration='2000' data-aos-delay="2500"
           onClick={scrolllToAbout} 
           className='action-button'
         >
@@ -189,14 +189,14 @@ const Hero = ({targetRef}) => {
       </HeroTextContainer>
       <TiltContainer>
         <div 
-          // data-aos='fade-up' data-aos-duration='2000'
+          data-aos='fade-up' data-aos-duration='2000'
         >
-            <HeroGuy src={GuyWorkingOut} alt='guy-working-out-with-tire'/>
-            <HeroGirl src={YogaGirl} alt='girl-doing-yoga-image'/>
+            <HeroGuy src={GuyWorkingOut} alt='guy working out with tire'/>
+            <HeroGirl src={YogaGirl} alt='girl doing yoga image'/>
             <HeroBlob src={Blob} alt='blob'/>
         </div>
       </TiltContainer>
-      <Dumbell src={DumbellSVG} alt='guy-working-out-with-tire'/>
+      <Dumbell src={DumbellSVG} alt='guy working out with tire'/>
    </HeroSection>
   )
 }

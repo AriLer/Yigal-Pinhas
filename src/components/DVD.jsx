@@ -111,7 +111,7 @@ const Credit = styled.p`
 const DVD = () => {
   return (
     <Section>
-        <h2>המדריך המולטימדי</h2>
+        <h2>לומדת מולטימדיה</h2>
 
         <MainContent>
           <TextContent>
@@ -143,10 +143,10 @@ const DVD = () => {
             <Purchase>לרכישה צרו קשר <Email>yigalpinchas@gmail.com</Email></Purchase>
           </TextContent>
         <Gallery>
-            <GalleryItem src={img1} alt={""}/>
-            <GalleryItem src={img2} alt={""}/>
-            <GalleryItem src={img3} alt={""}/>
-            <GalleryItem src={img4} alt={""}/>
+            <GalleryItem src={img1} alt={"Yigal Pinchas multimadia 1 - יגאל פנחס מולטימדיה"}/>
+            <GalleryItem src={img2} alt={"Yigal Pinchas multimadia 2 - יגאל פנחס מולטימדיה"}/>
+            <GalleryItem src={img3} alt={"Yigal Pinchas multimadia 3 - יגאל פנחס מולטימדיה"}/>
+            <GalleryItem src={img4} alt={"Yigal Pinchas multimadia 4 - יגאל פנחס מולטימדיה"}/>
             <Credit>
             Multimedia Guide to Working Out in the Gym. Pinchas, Y & Katz, L. (2007). Sport Technology Research Lab., Savvy Knowledge Systems Crop., and University of Calgary, Alberta, Canada.
             </Credit>

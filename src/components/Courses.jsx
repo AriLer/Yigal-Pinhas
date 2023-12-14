@@ -144,7 +144,7 @@ const Courses = () => {
   return (
     <CoursesSeciton>
       <Blob src={BlobSVG} alt='Blob'/>
-      <Girl src={GirlStudyingSVG} alt='Blob'/>
+      <Girl src={GirlStudyingSVG} alt='girl doing yoga'/>
       <SectionTitle>קורסים</SectionTitle>
       <CourseGrid>
         {courses.map((col, idx) => 
@@ -163,7 +163,7 @@ const Courses = () => {
           </CourseCol>
         )}
       </CourseGrid>
-      <BookStack src={BookStackSVG} alt='book-stack'/>
+      <BookStack src={BookStackSVG} alt='book stack'/>
     </CoursesSeciton>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import AboutSVG from './../assets/internal-images/Team of employees at lunch.svg'
 import YigalImg from './../assets/client-images/Yigal 2.JPG'
 import GroceriesSVG from './../assets/internal-images/Bag of groceries.svg'
 
@@ -110,7 +109,7 @@ const About = ({forwardedRef}) => {
           </AboutText>
         </AboutTextContainer>
         <AboutImageContainer>
-          <AboutImage src={YigalImg} alt='people-eating-lunch'/>
+          <AboutImage src={YigalImg} alt='Yigal Pinchas - יגאל פנחס'/>
         </AboutImageContainer>
       </MainContainer>
       <Groceries src={GroceriesSVG} alt='bag-of-groceries'/>
