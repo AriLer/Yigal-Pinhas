@@ -42,10 +42,10 @@ const ViewerContainer = styled.div`
     @media only screen and (max-width: 576px) {
         width: 95%;
     }
-    `
+`
 
 const VideoContainer = styled.div`
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: center;
     height: 80vh;
@@ -55,7 +55,7 @@ const VideoContainer = styled.div`
     }
     
     @media only screen and (max-width: 576px) {
-        height: 50vh;
+        height: 40vh;
     }
 `
 

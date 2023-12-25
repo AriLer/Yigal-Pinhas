@@ -95,6 +95,7 @@ const ListItem = styled.button`
   background-color: var(--light-cream);
   min-height: 6rem;
   font-size: 1rem;
+  color: black;
   z-index: 2;  
   box-shadow:
   0 1px 1px hsl(0deg 0% 0% / 0.015),
@@ -133,9 +134,6 @@ const Papers = () => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
-    // const target = e.target.getAttribute('href');
-    // const id = target.value;
-    console.log('id: ', id);
     navigate(`papers/${id}`);
   }
 
