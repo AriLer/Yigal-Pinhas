@@ -1,6 +1,5 @@
 export const papers = [
     {
-
         name: 'גמישות – מתאוריה למעשה',
         url: require('./reports/stretching - theory to practice.pdf')
     },

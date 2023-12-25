@@ -74,12 +74,10 @@ button:hover{
     }
 }
 
-
 strong {
     color: #CC663F;
 }
 
-a{
-    /* text-decoration: none; */
-    /* color: black; */
+.rpv-core__inner-page {
+    background-color: var(--cream) !important;
 }

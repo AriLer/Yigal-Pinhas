@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import {bookNodes} from '../static/books'
-import Bowl from '../assets/internal-images/rice bowl with fried egg.svg'
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -101,7 +100,7 @@ const BookCover = styled.img`
 `
 
 const Instructions = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.5;
   font-weight: 500;
   position: absolute;
@@ -225,7 +224,6 @@ const Books = ({heading, active, hideActive}) => {
   const handleReadMore = () => {
     const temp = bookNodes.filter((book, idx) => idx != currActive.id)
     setCurrActive(temp[0])
-    console.log("currActive: ", currActive.id);
     navigate(`/books`, {state:currActive})
     window.scrollTo(0, 0)
   }
@@ -242,7 +240,6 @@ const Books = ({heading, active, hideActive}) => {
         <BookCarouselContainer>
           <BookCarousel>
             {nodes.map((book, idx) => {
-              // console.log("book: ", book);
                 const offset = (hideActive ? 20 : - 5) 
                 let DIST = Math.abs(nodes.indexOf(currActive) - idx)        
                 let OFF_SET = Math.log(10)*(nodes.indexOf(currActive) - idx) + (50 * idx / winW) + offset;

@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import img1 from '../assets/client-images/gallery-1.png'
 import img2 from '../assets/client-images/gallery-2.png'
-import img3 from '../assets/client-images/gallery-3.png'
-import img4 from '../assets/client-images/gallery-4.png'
+import img3 from '../assets/client-images/gallery-3.webp'
+import img4 from '../assets/client-images/gallery-4.webp'
 
 
 const Section = styled.section`

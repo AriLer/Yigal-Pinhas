@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Blob from './../assets/internal-images/heroBlob.svg'
-import YogaGirl from './../assets/internal-images/woman standing in tree yoga pose.svg'
-import GuyWorkingOut from './../assets/internal-images/Guy doing workout with truck tire.svg'
+// import YogaGirl from './../assets/internal-images/woman standing in tree yoga pose.svg'
+import YogaGirl from './../assets/internal-images/woman-stretching-light.webp'
+// import GuyWorkingOut from './../assets/internal-images/Guy doing workout with truck tire.svg'
+import GuyWorkingOut from './../assets/internal-images/man-dumbels.webp'
+// import GuyWorkingOut from './../assets/internal-images/man-doing-pullups.jpg'
 import DumbellSVG from './../assets/internal-images/weight.svg'
 import Tilt from './Tilt'
 
@@ -24,7 +27,11 @@ const HeroTextContainer = styled.div`
   margin: 5%;
   
   @media only screen and (min-width: 1440px) {
-      margin: 10%;
+    margin: 7% 10%;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    margin: 4%;
   }
 
   @media only screen and (max-width: 768px) {
@@ -46,17 +53,24 @@ const HeroTextContainer = styled.div`
 const HeroText = styled.h1`
   margin-bottom: 0;
   font-size: 5rem;
-  `
+  line-height: 5rem;
+`
 
 const HeroSubtitle = styled.h3`
   color: var(--highlight);
-  `
+ 
+  @media only screen and (max-width: 1024px) {
+    margin: 1.5rem 0rem;
+    line-height: 2rem;
+  }
+`
 
 const HeroDesc = styled.p`
   color: gray;
   margin-bottom: 2rem;
   width: 75%;
   
+
   @media only screen and (max-width: 768px) {
     width: 65%;
     margin: auto;
@@ -92,7 +106,11 @@ const TiltContainer = styled(Tilt)`
   left: -1%;
   
   @media only screen and (min-width: 1440px) {
-    margin-top: 10%;
+    margin-top: 7%;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    margin-top: 2%;
   }
 `
 
@@ -111,11 +129,13 @@ const HeroBlob = styled.img`
   `
 
 const HeroGuy = styled.img`
+  border-radius: 15px;
   position: absolute;
-  height: 60%;
-  left: 14vw;
-  bottom: 40%;
-
+  width: 65%;
+  left: 5vw;
+  bottom: 45%;
+  /* z-index: 2; */
+  
   @media only screen and (max-width: 768px) {
     z-index: -1;
     opacity: 0.6;
@@ -126,21 +146,15 @@ const HeroGuy = styled.img`
   `
 
 const HeroGirl = styled.img`
+  border-radius: 15px;
   position: absolute;
-  height: 65%;
-  bottom: 0%;
-  left: 2.5vw;
+  width: 60%;
+  bottom: 15%;
+  left: 20vw;
   
   @media only screen and (max-width: 768px) {
-    z-index: -1;
-    bottom: 5vh;
-    left: 0;
-  }  
-  
-  @media only screen and (max-width: 576px) {
-    width: 40vw;
     display: none;
-  }
+  }  
   `
 const Dumbell = styled.img`
   position: absolute;
@@ -165,22 +179,22 @@ const Hero = ({targetRef}) => {
    <HeroSection id="main">
       <HeroTextContainer>
         <HeroText 
-          data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
         >
           {'ד"ר יגאל פנחס'}
         </HeroText>
         <HeroSubtitle 
-          data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
         >
           פעילות גופנית וקידום בריאות
         </HeroSubtitle>
         <HeroDesc 
-          data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
         >
           מרצה בכיר במכללת סמינר הקיבוצים, מורה לחינוך גופני בבתי ספר תיכוניים בתל־אביב. פרופסור אורח באוניברסיטת קלגרי שבקנדה
         </HeroDesc>
         <ActionButton 
-          data-aos='fade-in' data-aos-duration='2000' data-aos-delay="2500"
+          // data-aos='fade-in' data-aos-duration='2000' data-aos-delay="2500"
           onClick={scrolllToAbout} 
           className='action-button'
         >
@@ -189,11 +203,11 @@ const Hero = ({targetRef}) => {
       </HeroTextContainer>
       <TiltContainer>
         <div 
-          data-aos='fade-up' data-aos-duration='2000'
+          // data-aos='fade-up' data-aos-duration='2000'
         >
             <HeroGuy src={GuyWorkingOut} alt='guy working out with tire'/>
             <HeroGirl src={YogaGirl} alt='girl doing yoga image'/>
-            <HeroBlob src={Blob} alt='blob'/>
+            {/* <HeroBlob src={Blob} alt='blob'/> */}
         </div>
       </TiltContainer>
       <Dumbell src={DumbellSVG} alt='guy working out with tire'/>
