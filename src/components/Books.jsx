@@ -160,7 +160,7 @@ const BookDescTitle = styled.h3`
 `
 
 const BookDesc = styled.p`
-  color: gray;
+  color: #5b5b5b;
   width: 100%;
   line-height: 1.3rem;
   
@@ -224,7 +224,7 @@ const Books = ({heading, active, hideActive}) => {
   const handleReadMore = () => {
     const temp = bookNodes.filter((book, idx) => idx != currActive.id)
     setCurrActive(temp[0])
-    navigate(`/books`, {state:currActive})
+    navigate(`/books/${currActive.id}`)
     window.scrollTo(0, 0)
   }
   

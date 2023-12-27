@@ -4,6 +4,7 @@ import img1 from '../assets/client-images/gallery-1.png'
 import img2 from '../assets/client-images/gallery-2.png'
 import img3 from '../assets/client-images/gallery-3.webp'
 import img4 from '../assets/client-images/gallery-4.webp'
+import img5 from '../assets/client-images/DVD.png'
 
 
 const Section = styled.section`
@@ -11,6 +12,10 @@ const Section = styled.section`
   min-height: 100vh;
   padding: 0 5%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   
   @media only screen and (min-width: 1440px) {
     padding: 0 10%;
@@ -19,11 +24,11 @@ const Section = styled.section`
 
 const MainContent =  styled.div`
   height: 70%;
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 4%;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 
   @media only screen and (max-width: 576px) {
     flex-direction: column;
@@ -32,9 +37,26 @@ const MainContent =  styled.div`
     gap: 0%;
   }
 `
+
+const Cover = styled.img`
+  float: left;
+  margin: 0 2rem 2rem 0;
+  flex: 1;
+  width: 35%;
+  object-fit: cover;
+  @media only screen and (max-width: 768px) {
+    width: 45%;
+  }
+  @media only screen and (max-width: 576px) {
+    float: none;
+    width: 90%;
+    height: 20%;
+    margin: 2rem 5%;
+  }
+`
+
 const TextContent =  styled.div`
-  width: 85%;
-  flex: 4;
+  flex: 3;
   
   @media only screen and (max-width: 576px) {
     flex: 3;
@@ -61,33 +83,34 @@ const Rational = styled.p`
 `
 
 const Gallery = styled.div`
-  flex: 3;
+  flex: 4;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
   @media only screen and (max-width: 768px) {
-    flex-direction: column;
-    flex-wrap: nowrap;
     align-items: flex-end;
-    gap: .8rem;
+    gap: 1.5rem;
   }
   @media only screen and (max-width: 576px) {
+    gap: 1rem;
     align-items: center;
-    width: 90%;
-    margin: auto;
   }
 `
 
 const GalleryItem = styled.img`
-  height: 36%;
-  width: 46%;
+  width: 23%;
   object-fit: cover;
+  aspect-ratio: 16/12;
+
   @media only screen and (max-width: 768px) {
-    width: 70%;
+    width: 42%;
+    
   }
   @media only screen and (max-width: 576px) {
-    width: 70%;
-    height: 20%;
+    width: 75%;
   }
 `
 
@@ -100,11 +123,10 @@ const Email = styled.span`
   font-weight: 400;
 `
 
-
 const Credit = styled.p`
   font-size: .85rem;
   opacity: 0.7;
-  text-align: left;
+  text-align: center;
   margin: 0;
 `
 
@@ -114,8 +136,9 @@ const DVD = () => {
         <h2>לומדת מולטימדיה</h2>
 
         <MainContent>
+          <Cover src={img5} alt={"Yigal Pinchas multimadia 3 - יגאל פנחס מולטימדיה"}/>
           <TextContent>
-            <Rational>
+            <Rational style={{marginTop: '0'}}>
               אנטומיה, פיזולוגיה, קנסיולוגיה, תורת הכושר הגופני עיוני, מדעי האימון,
                חדרי כושר, כושר גופני מעשי וביומכניקה הם ברובם קורסי חובה בתהליך הכשרת פרחי
               ההוראה בביה"ס להשתלמויות, ביה"ס ללמודים מתקדמים, ביה"ס לחינוך גופני ותנועה,
@@ -142,16 +165,16 @@ const DVD = () => {
             </Rational>
             <Purchase>לרכישה צרו קשר <Email>yigalpinchas@gmail.com</Email></Purchase>
           </TextContent>
+        </MainContent>
         <Gallery>
-            <GalleryItem src={img1} alt={"Yigal Pinchas multimadia 1 - יגאל פנחס מולטימדיה"}/>
+            <GalleryItem src={img1} alt={"Yigal Pinchas multimadia 3 - יגאל פנחס מולטימדיה"}/>
             <GalleryItem src={img2} alt={"Yigal Pinchas multimadia 2 - יגאל פנחס מולטימדיה"}/>
-            <GalleryItem src={img3} alt={"Yigal Pinchas multimadia 3 - יגאל פנחס מולטימדיה"}/>
+            <GalleryItem src={img3} alt={"Yigal Pinchas multimadia 1 - יגאל פנחס מולטימדיה"}/>
             <GalleryItem src={img4} alt={"Yigal Pinchas multimadia 4 - יגאל פנחס מולטימדיה"}/>
             <Credit>
             Multimedia Guide to Working Out in the Gym. Pinchas, Y & Katz, L. (2007). Sport Technology Research Lab., Savvy Knowledge Systems Crop., and University of Calgary, Alberta, Canada.
             </Credit>
         </Gallery>
-        </MainContent>
     </Section>
   )
 }

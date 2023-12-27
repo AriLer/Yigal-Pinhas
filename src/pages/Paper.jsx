@@ -5,24 +5,28 @@ import {papers} from '../static/papers'
 import { Worker, Viewer, SpecialZoomLevel  } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css'; // Import default styles
 import styled from 'styled-components';
+import { Navbar, Footer } from '../components';
 
     
 
 const Section = styled.section`
     min-height: 100vh;
+    margin-top: 10vh;
 `
 
 const BackBtn = styled.button`
     height: 3rem;
-    margin: 1rem 2rem;
-    margin-top: 2rem;
+    margin: 2rem 5%;
     border-radius: 10px;
     background-color: var(--highlight);
     color: var(--light-cream);
     font-size: 1rem;
     padding: 1rem;
-
-    `
+    
+    @media only screen and (min-width: 1440px) {
+        margin: 2rem 10%;
+    }
+`
 
 const ViewerContainer = styled.div`
     margin: auto;
@@ -61,7 +65,6 @@ const VideoContainer = styled.div`
 
 const Paper = () => {
     const {id} = useParams();
-    console.log(id);
     const paper = papers[id]
 
     const pdfjsVersion = require('pdfjs-dist/package.json').version;
@@ -70,8 +73,9 @@ const Paper = () => {
     console.log(paper);
     return (
         <Section>
+            <Navbar/>
                 <BackBtn onClick={() => navigate(-1)}>
-                        חזרה לדף הבית
+                        {'< חזרה'}
                 </BackBtn>
         <ViewerContainer>
             <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}>
@@ -81,7 +85,6 @@ const Paper = () => {
                     <VideoContainer>
                         <iframe
                         width="100%"
-                        // height="100%"
                         src={`https://www.youtube.com/embed/Q2FBKluBJhQ`}
                         title="YouTube Video Preview"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -90,6 +93,7 @@ const Paper = () => {
                     </VideoContainer>
                 }
         </ViewerContainer>
+        <Footer/>
         </Section>
     )
 }

@@ -81,3 +81,7 @@ strong {
 .rpv-core__inner-page {
     background-color: var(--cream) !important;
 }
+
+.open {
+    opacity: 1 !important;
+}

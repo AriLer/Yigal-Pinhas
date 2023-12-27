@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {Books, Footer} from '../components/index'
 import BlobSVG from '../assets/internal-images/heroBlob.svg'
 import Navbar from '../components/Navbar'
-import {useLocation} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 
 const Section = styled.section`
     position: relative;
@@ -48,16 +48,17 @@ const Email = styled.span`
 
 const Blob = styled.img`
     position: absolute;
-    top: -75vh;
     z-index: -10;
 
 `
 
 const BookSummery = () => {
 
-    const location = useLocation()
+    const navigate = useNavigate();
     
-    let id = location.state.id
+    const {id} = useParams();
+    console.log(id);
+    
     const node = bookNodes[id]
     const content = bookContent[id]
 
@@ -72,8 +73,8 @@ const BookSummery = () => {
     }
     return (
         <>
+        <Navbar />
         <Section style={{direction: node.direction}}>
-        <Navbar direction={node.direction}/>
             <Blob
                 style={blobStyle} 
                 src={BlobSVG} 

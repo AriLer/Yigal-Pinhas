@@ -1,59 +1,71 @@
 import React from 'react'
 import styled from 'styled-components'
-import Blob from './../assets/internal-images/heroBlob.svg'
-// import YogaGirl from './../assets/internal-images/woman standing in tree yoga pose.svg'
 import YogaGirl from './../assets/internal-images/woman-stretching-light.webp'
-// import GuyWorkingOut from './../assets/internal-images/Guy doing workout with truck tire.svg'
 import GuyWorkingOut from './../assets/internal-images/man-dumbels.webp'
-// import GuyWorkingOut from './../assets/internal-images/man-doing-pullups.jpg'
 import DumbellSVG from './../assets/internal-images/weight.svg'
 import Tilt from './Tilt'
+import MobileHeroImgSrc from './../assets/internal-images/MobileHero.png'
 
 
 const HeroSection = styled.section`
   display: flex;
+  position: relative;
   min-height: 100vh;
   overflow: hidden;
   overflow-y: hidden;
+  align-items: center;
   
+  @media only screen and (max-width: 1024px) {
+    margin-top: 5vh;
+  }
+
   @media only screen and (max-width: 768px) {
     display: block;
+    margin-top: 0vh;
   }
-  `
+`
 
 const HeroTextContainer = styled.div`
+  height: 70vh;
   flex: 4;
   text-align: right;
   margin: 5%;
+  margin-top: 10%;
   
   @media only screen and (min-width: 1440px) {
-    margin: 7% 10%;
+    margin: 10% 10% 7%;
   }
   
   @media only screen and (max-width: 1024px) {
     margin: 4%;
+    margin-top: 5%;
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 5% 0;
+    height: 60vh;
+    padding: 0% 0;
     width: 85%;
     margin: auto;
+    margin-top: 2rem;
     text-align: center;
-    margin-top: 5%;
   }
   
   @media only screen and (max-width: 576px) {
-    width: 90%;
+    height: 65vh;
+    width: 95%;
     padding: 5% 0;
     margin: auto;
-    margin-top: 5%;
   }
-  `
+`
 
 const HeroText = styled.h1`
   margin-bottom: 0;
   font-size: 5rem;
   line-height: 5rem;
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 0rem;
+  }
 `
 
 const HeroSubtitle = styled.h3`
@@ -66,7 +78,7 @@ const HeroSubtitle = styled.h3`
 `
 
 const HeroDesc = styled.p`
-  color: gray;
+  color: #656565;
   margin-bottom: 2rem;
   width: 75%;
   
@@ -100,41 +112,28 @@ const ActionButton = styled.button`
 `
 
 const TiltContainer = styled(Tilt)`
+  height: 70vh;
   flex: 3;
   margin: 5% 0;
   position: relative;
   left: -1%;
   
   @media only screen and (min-width: 1440px) {
-    margin-top: 7%;
+    margin: 10% 0% 7%;
   }
-
-  @media only screen and (max-width: 1024px) {
-    margin-top: 2%;
-  }
-`
-
-const HeroBlob = styled.img`
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: 0%;
-  z-index: -1;
-  position: relative;
 
   @media only screen and (max-width: 768px) {
-   width: 40vw;
     display: none;
   }
-  `
+
+`
 
 const HeroGuy = styled.img`
   border-radius: 15px;
   position: absolute;
-  width: 65%;
+  width: 70%;
   left: 5vw;
-  bottom: 45%;
-  /* z-index: 2; */
+  bottom: 40%;
   
   @media only screen and (max-width: 768px) {
     z-index: -1;
@@ -148,8 +147,8 @@ const HeroGuy = styled.img`
 const HeroGirl = styled.img`
   border-radius: 15px;
   position: absolute;
-  width: 60%;
-  bottom: 15%;
+  width: 65%;
+  bottom: 10%;
   left: 20vw;
   
   @media only screen and (max-width: 768px) {
@@ -161,8 +160,17 @@ const Dumbell = styled.img`
   bottom: 0;
   height: 150px;
   
+  @media only screen and (max-width: 576px) {
+    height: 100px;
+  }
+`
+
+const MobileHeroImg = styled.img`
+  display: none;
+
   @media only screen and (max-width: 768px) {
-    display: none;
+    display: block;
+    width: 100%;
   }
 `
 
@@ -177,24 +185,25 @@ const Hero = ({targetRef}) => {
 
   return (
    <HeroSection id="main">
+      <MobileHeroImg src={MobileHeroImgSrc}/>
       <HeroTextContainer>
         <HeroText 
-          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
         >
           {'ד"ר יגאל פנחס'}
         </HeroText>
         <HeroSubtitle 
-          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
         >
           פעילות גופנית וקידום בריאות
         </HeroSubtitle>
         <HeroDesc 
-          // data-aos='fade-up' data-aos-duration='2000' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
         >
           מרצה בכיר במכללת סמינר הקיבוצים, מורה לחינוך גופני בבתי ספר תיכוניים בתל־אביב. פרופסור אורח באוניברסיטת קלגרי שבקנדה
         </HeroDesc>
         <ActionButton 
-          // data-aos='fade-in' data-aos-duration='2000' data-aos-delay="2500"
+          // data-aos='fade-in' data-aos-duration='1500' data-aos-delay="1500"
           onClick={scrolllToAbout} 
           className='action-button'
         >
@@ -203,11 +212,10 @@ const Hero = ({targetRef}) => {
       </HeroTextContainer>
       <TiltContainer>
         <div 
-          // data-aos='fade-up' data-aos-duration='2000'
+          data-aos='fade-up' data-aos-duration='1500' style={{position: 'relative', height: '100%', width: '100%'}}
         >
             <HeroGuy src={GuyWorkingOut} alt='guy working out with tire'/>
             <HeroGirl src={YogaGirl} alt='girl doing yoga image'/>
-            {/* <HeroBlob src={Blob} alt='blob'/> */}
         </div>
       </TiltContainer>
       <Dumbell src={DumbellSVG} alt='guy working out with tire'/>

@@ -75,6 +75,10 @@ const PapersSection = styled.section`
   background-color: var(--cream);
   padding: 0 5%;
   overflow: hidden;
+  
+  @media only screen and (min-width: 1440px) {
+    padding: 0 10%;
+  }
 `
 
 const ListContainer = styled.div`
@@ -134,7 +138,7 @@ const Papers = () => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
-    navigate(`papers/${id}`);
+    navigate(`/papers/${id}`);
   }
 
   return (
