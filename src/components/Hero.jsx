@@ -188,22 +188,22 @@ const Hero = ({targetRef}) => {
       <MobileHeroImg src={MobileHeroImgSrc}/>
       <HeroTextContainer>
         <HeroText 
-          data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
         >
           {'ד"ר יגאל פנחס'}
         </HeroText>
         <HeroSubtitle 
-          data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
         >
           פעילות גופנית וקידום בריאות
         </HeroSubtitle>
         <HeroDesc 
-          data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
+          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
         >
           מרצה בכיר במכללת סמינר הקיבוצים, מורה לחינוך גופני בבתי ספר תיכוניים בתל־אביב. פרופסור אורח באוניברסיטת קלגרי שבקנדה
         </HeroDesc>
         <ActionButton 
-          data-aos='fade-in' data-aos-duration='1500' data-aos-delay="2000"
+          // data-aos='fade-in' data-aos-duration='1500' data-aos-delay="1500"
           onClick={scrolllToAbout} 
           className='action-button'
         >
