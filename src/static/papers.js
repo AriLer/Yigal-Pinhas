@@ -1,4 +1,9 @@
 export const papers = [
+    
+    {
+        name: 'קשיים ואתגרים בחינוך הגופני',
+        url: require('./reports/sport-hardships.pdf')
+    },
     {
         name: 'גמישות – מתאוריה למעשה',
         url: require('./reports/stretching - theory to practice.pdf')
@@ -42,10 +47,6 @@ export const papers = [
     {
         name: 'צעדים מקדימים בתוכנית לניהול עצמי בגישה הוליסטית בחדר הכושר',
         url: require('./reports/first-steps-gym.pdf')
-    },
-    {
-        name: 'קשיים ואתגרים בחינוך הגופני',
-        url: require('./reports/sport-hardships.pdf')
     },
     {
         name: 'שינה – מי צריך את זה בכלל?',

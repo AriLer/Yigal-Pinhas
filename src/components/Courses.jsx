@@ -13,18 +13,20 @@ const CoursesSeciton = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  overflow: hidden;
-
+  overflow-x: hidden;
+  
   @media only screen and (min-width: 1440px) {
     padding: 0 10%;
   }
-`
+
+  `
 
 const SectionTitle = styled.h2`
   text-align: end;
-
+  
   @media only screen and (max-width: 576px) {
     text-align: start;
+    margin-top: 10vh;
   }
 `
 
@@ -104,10 +106,14 @@ const Blob = styled.img`
   right: 0;
   top: -5%;
   width: 50%;
-
+  
+  @media only screen and (max-width: 768px) {
+    width: 60%;
+  }
+  
   @media only screen and (max-width: 576px) {
-    right: 50%;
-    top: -4%;
+    top: 0%;
+    right: 45%;
     transform: scaleX(-1);
   }
 `

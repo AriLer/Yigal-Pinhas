@@ -53,6 +53,7 @@ const VideoContainer = styled.div`
     display: flex;
     justify-content: center;
     height: 80vh;
+    margin-bottom: 2rem;
     
     @media only screen and (max-width: 768px) {
         height: 70vh;
@@ -78,20 +79,23 @@ const Paper = () => {
                         {'< חזרה'}
                 </BackBtn>
         <ViewerContainer>
+            {id == 13 &&
+                <>
+                <h2>האבולוציה של החנוך הגופני</h2>
+                <VideoContainer>
+                    <iframe
+                    width="100%"
+                    src={`https://www.youtube.com/embed/Q2FBKluBJhQ`}
+                    title="YouTube Video Preview"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    />
+                </VideoContainer>
+                </>
+            }
             <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}>
                 <Viewer fileUrl={paper.url} defaultScale={SpecialZoomLevel.PageWidth}/>
             </Worker>
-                {id == 13 &&
-                    <VideoContainer>
-                        <iframe
-                        width="100%"
-                        src={`https://www.youtube.com/embed/Q2FBKluBJhQ`}
-                        title="YouTube Video Preview"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        />
-                    </VideoContainer>
-                }
         </ViewerContainer>
         <Footer/>
         </Section>

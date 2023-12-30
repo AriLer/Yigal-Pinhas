@@ -18,7 +18,7 @@ const NavbarContainer = styled.div`
     display: flex;
     align-items: center;
     border-bottom: 2px solid #51312684;
-    
+    height: 100%;
     @media only screen and (max-width: 768px) {
         display: none;
     }
@@ -26,14 +26,17 @@ const NavbarContainer = styled.div`
 
 const LinksContainer = styled.div`
     display: flex;
-    gap: 1rem;
+    /* gap: 1rem; */
+    height: 100%;
 
     & a {
         cursor: pointer;
-        padding: .5rem 1rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0rem 2rem;
         box-shadow: inset 0 0 0 0 var(--highlight);
-        transition: color .3s ease-in-out, box-shadow 0.4s ease-in-out;
-        transition: color .5s cubic-bezier(0.75, 0, 1, .5), box-shadow .5s ease-in-out;
+        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
         &:hover {
             box-shadow: inset 0 350px 0 0 var(--highlight);
             color: white;
@@ -91,7 +94,7 @@ const MobileContainer = styled.div`
 `
 
 const Hamburger = styled.img`
-    height: calc(8vh - 10px);
+    height: calc(8vh - 15px);
     margin: 10px;
    
     &:hover {
@@ -134,7 +137,7 @@ const Navbar = () => {
 
     return (
         <NavbarSection>
-            <MobileContainer style={!isOpen ? {width: '72px', height: '70px'}: {}}>
+            <MobileContainer style={!isOpen ? {width: '67px', height: '67px'}: {}}>
                 <Hamburger 
                     onClick={handleOpen} 
                     src={isOpen ? MenuEnd : MenuStart}

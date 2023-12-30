@@ -3,7 +3,8 @@ import { Navbar, Footer, DVD} from '../components'
 import styled from 'styled-components'
 
 const Page = styled.section`
-    margin-top: 10vh;
+    padding-top: 10vh;
+    background-color: var(--light-cream);
 `
 
 const Multimedia = () => {
