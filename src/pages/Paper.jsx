@@ -81,7 +81,7 @@ const Paper = () => {
         <ViewerContainer>
             {id == 13 &&
                 <>
-                <h2>האבולוציה של החנוך הגופני</h2>
+                <h3 style={{width: '95%'}}>האבולוציה של החנוך הגופני</h3>
                 <VideoContainer>
                     <iframe
                     width="100%"

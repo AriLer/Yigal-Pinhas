@@ -4,6 +4,7 @@ import {Home, BookSummery, Paper, Papers, Courses, Multimedia} from './pages'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
       <Router>
+        <ScrollToTop/>
         <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/books/:id" element={<BookSummery />} />

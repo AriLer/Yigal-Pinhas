@@ -131,7 +131,8 @@ const Blob = styled.img`
   transform: rotate(0deg);
   
   @media only screen and (max-width: 576px) {
-    bottom: -50%;
+    left: -15%;
+    bottom: -20%;
   }
 `
 const Papers = () => {

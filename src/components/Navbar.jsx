@@ -26,23 +26,7 @@ const NavbarContainer = styled.div`
 
 const LinksContainer = styled.div`
     display: flex;
-    /* gap: 1rem; */
     height: 100%;
-
-    & a {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0rem 2rem;
-        box-shadow: inset 0 0 0 0 var(--highlight);
-        transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
-        &:hover {
-            box-shadow: inset 0 350px 0 0 var(--highlight);
-            color: white;
-            transition: color .2s ease-in-out, box-shadow .5s ease-in-out;
-        }
-    }
 `
 
 const HomeLink = styled.button`
@@ -50,7 +34,8 @@ const HomeLink = styled.button`
     display: flex;
     background-color: transparent;
     padding: 13px;
-    font-size: 1.3rem;
+    padding-right: 0;
+    font-size: 1.45rem;
     color: var(--dark-brown);
     margin: 1% 5%;
     transition: all .2s ease-in-out;
@@ -66,13 +51,41 @@ const HomeLink = styled.button`
 
 `
 
+const Link = styled.div`
+    display: flex;
+    align-items: center;
+    color: var(--highlight);
+    box-shadow: inset 0 0 0 0 var(--highlight);
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    padding: 0 2.5vw;
+    &:hover {
+        box-shadow: inset 0 400px 0 0 var(--highlight);
+        color: white;
+        transition: color .2s ease-in-out, box-shadow .5s ease-in-out;
+    }
+`
+
+const LinkImg = styled.img`
+    /* margin: auto; */
+`
+
+const LinkText = styled.a`
+    font-weight: 600;
+    font-size: 1.12rem;
+    letter-spacing: .3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 10px;
+`
+
 const MobileContainer = styled.div`
     overflow: hidden;
     background-color: var(--cream);
     margin: 1rem;
     border-radius: 15px;
     width: 50%;
-    height: 60vh;
     transition: all 0.2s ease-in-out;
     box-shadow:
         0 1px 1px hsl(0deg 0% 0% / 0.075),
@@ -89,14 +102,14 @@ const MobileContainer = styled.div`
 
     @media only screen and (max-width: 576px) {
         width: 60%;
-        height: 60vh;
     }
 `
 
 const Hamburger = styled.img`
-    height: calc(8vh - 15px);
+    height: calc(45px);
     margin: 10px;
-   
+    opacity: 0.8;
+
     &:hover {
         filter: brightness(0.9);
     }
@@ -107,20 +120,24 @@ const ModalLinkContainer = styled.div`
 `
 
 const ModalLink = styled.div`
-    position: relative;
     display: flex;
-    padding: .8rem 0px;
-    padding-right: 20px;
-    font-size: 2rem;
+    align-items: center;
+    gap: 10px;
+    padding: 1.03rem 0px;
+    padding-right: 3vw;
+    font-size: 1.8rem;
+    color: var(--dark-brown);
     color: var(--dark-brown);
     box-shadow: inset 0 0 0 0 var(--highlight);
-    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    transition: color .3s ease-in-out, box-shadow .4s ease-in-out;
     
+    border-bottom: 1px solid #51312689;
     &:hover {
-        box-shadow: inset 350px 0 0 0 var(--highlight);
+        box-shadow: inset 500px 0 0 0 var(--highlight);
         color: white;
     }
 `
+
 
 const Navbar = () => {
 
@@ -135,9 +152,16 @@ const Navbar = () => {
         }
     };
 
+    const links = [
+        {text: 'ספרים', route: 'books/0', img: 'https://img.icons8.com/ios/50/book--v1.png'},
+        {text: 'לומדת מולטימדיה', route: 'multimedia', img: 'https://img.icons8.com/ios/50/internet--v1.png'},
+        {text: 'קורסים', route: 'courses', img: 'https://img.icons8.com/ios/50/school.png'},
+        {text: 'מאמרים', route: 'papers', img: 'https://img.icons8.com/ios/50/paper.png'},
+    ]
+
     return (
         <NavbarSection>
-            <MobileContainer style={!isOpen ? {width: '67px', height: '67px'}: {}}>
+            <MobileContainer style={!isOpen ? {width: '65px', height: '65px'}: {}}>
                 <Hamburger 
                     onClick={handleOpen} 
                     src={isOpen ? MenuEnd : MenuStart}
@@ -146,20 +170,19 @@ const Navbar = () => {
                 {isOpen &&
                     <ModalLinkContainer style={{flexDirection: 'column'}}>
                             <ModalLink className={isOpen ? 'open': ''} onClick={() => navigate(`/`)}>
+                                <LinkImg width="30" height="30" src='https://img.icons8.com/ios/home--v1.png' alt='home-icon'/>
                                 דף הבית
                             </ModalLink>
-                            <ModalLink className={isOpen ? 'open': ''} onClick={() => navigate(`/books/0`)}>
-                                ספרים
-                            </ModalLink>
-                            <ModalLink className={isOpen ? 'open': ''} onClick={() => navigate(`/multimedia`)}>
-                                לומדת מולטימדיה
-                            </ModalLink>
-                            <ModalLink className={isOpen ? 'open': ''} onClick={() => navigate(`/courses`)}>
-                                קורסים
-                            </ModalLink>
-                            <ModalLink className={isOpen ? 'open': ''} onClick={() => navigate(`/papers`)}>
-                                מאמרים
-                            </ModalLink>
+                            {links.map((link, index) => (
+                                <ModalLink
+                                    className={isOpen ? 'open': ''}
+                                    key={index}
+                                    onClick={() => navigate(`/${link.route}`)}
+                                >
+                                    <LinkImg width="30" height="30" src={link.img} alt={`${link.text}-icon`}/>
+                                    {link.text}
+                                </ModalLink>
+                            ))}
                     </ModalLinkContainer>
                 } 
             </MobileContainer>
@@ -167,10 +190,14 @@ const Navbar = () => {
             <NavbarContainer style={{}}>  
                 <HomeLink onClick={() => navigate(`/`)}>{'ד"ר יגאל פנחס'}</HomeLink>
                 <LinksContainer>
-                    <a onClick={() => navigate(`/books/0`)}>ספרים</a>
-                    <a onClick={() => navigate(`/multimedia`)}>לומדת מולטימדיה</a>
-                    <a onClick={() => navigate(`/courses`)}>קורסים</a>
-                    <a onClick={() => navigate(`/papers`)}>מאמרים</a>
+                    {links.map((link, index) => (
+                        <Link key={index}>
+                            <LinkImg width="25" height="25" src={link.img} alt={`${link.text}-icon`}/>
+                            <LinkText onClick={() => navigate(`/${link.route}`)}>
+                                {link.text}
+                            </LinkText>
+                        </Link>
+                    ))}
                 </LinksContainer>
             </NavbarContainer>
         </NavbarSection>

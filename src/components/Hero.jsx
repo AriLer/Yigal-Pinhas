@@ -29,11 +29,10 @@ const HeroTextContainer = styled.div`
   height: 70vh;
   flex: 4;
   text-align: right;
-  margin: 5%;
-  margin-top: 10%;
+  margin:  5% 5% 0%;
   
   @media only screen and (min-width: 1440px) {
-    margin: 10% 10% 7%;
+    margin: 7% 10% 0%;
   }
   
   @media only screen and (max-width: 1024px) {
@@ -114,12 +113,12 @@ const ActionButton = styled.button`
 const TiltContainer = styled(Tilt)`
   height: 70vh;
   flex: 3;
-  margin: 5% 0;
+  margin:  10% 0 0%;
   position: relative;
   left: -1%;
   
   @media only screen and (min-width: 1440px) {
-    margin: 10% 0% 7%;
+    margin: 7% 0% 0%;
   }
 
   @media only screen and (max-width: 768px) {
@@ -186,24 +185,18 @@ const Hero = ({targetRef}) => {
   return (
    <HeroSection id="main">
       <MobileHeroImg src={MobileHeroImgSrc}/>
-      <HeroTextContainer>
+      <HeroTextContainer
+        data-aos='fade-up' data-aos-duration='1500' data-aos-delay="500"
+      >
         <HeroText 
-          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
         >
           {'ד"ר יגאל פנחס'}
         </HeroText>
-        <HeroSubtitle 
-          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
-        >
-          פעילות גופנית וקידום בריאות
-        </HeroSubtitle>
-        <HeroDesc 
-          // data-aos='fade-up' data-aos-duration='1500' data-aos-delay="1000"
-        >
+        <HeroSubtitle>פעילות גופנית וקידום בריאות</HeroSubtitle>
+        <HeroDesc>
           מרצה בכיר במכללת סמינר הקיבוצים, מורה לחינוך גופני בבתי ספר תיכוניים בתל־אביב. פרופסור אורח באוניברסיטת קלגרי שבקנדה
         </HeroDesc>
         <ActionButton 
-          // data-aos='fade-in' data-aos-duration='1500' data-aos-delay="1500"
           onClick={scrolllToAbout} 
           className='action-button'
         >
