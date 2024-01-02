@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar'
 import {useParams, useNavigate} from 'react-router-dom'
 
 const Section = styled.section`
+    background-color: var(--light-cream);
     position: relative;
     padding: 5%;
     padding-top: 10%;
@@ -19,6 +20,7 @@ const Section = styled.section`
 `
 
 const Title = styled.h2`
+    z-index: 10;
     width: 70%;
     margin-bottom: 2rem;
     
@@ -31,6 +33,7 @@ const Title = styled.h2`
 
 
 const Content = styled.div`
+    z-index: 10;
     line-height: 1.5rem;
 `
 
@@ -48,14 +51,10 @@ const Email = styled.span`
 
 const Blob = styled.img`
     position: absolute;
-    z-index: -10;
-
+    z-index: 1;
 `
 
 const BookSummery = () => {
-
-    const navigate = useNavigate();
-    
     const {id} = useParams();
     console.log(id);
     

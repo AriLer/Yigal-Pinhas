@@ -49,6 +49,11 @@ const HomeLink = styled.button`
         margin: 1% 10%;
     }
 
+    @media only screen and (max-width: 992px) {
+        font-size: 1.4rem;
+        padding: 0px;
+    }
+
 `
 
 const Link = styled.div`
@@ -63,10 +68,23 @@ const Link = styled.div`
         color: white;
         transition: color .2s ease-in-out, box-shadow .5s ease-in-out;
     }
+    
+    @media only screen and (max-width: 992px) {
+        padding: 0 2vw;
+    }
 `
 
 const LinkImg = styled.img`
-    /* margin: auto; */
+    width: 25px;
+    height: 25px;
+    
+    
+    @media only screen and (max-width: 992px) {
+        width: 20px;
+        height: 20px;
+    }
+
+     
 `
 
 const LinkText = styled.a`
@@ -78,6 +96,12 @@ const LinkText = styled.a`
     align-items: center;
     height: 100%;
     padding-right: 10px;
+    
+    @media only screen and (max-width: 992px) {
+        font-size: 1.1rem;
+        letter-spacing: 0px;
+        padding-right: 5px;
+    }
 `
 
 const MobileContainer = styled.div`
@@ -192,7 +216,7 @@ const Navbar = () => {
                 <LinksContainer>
                     {links.map((link, index) => (
                         <Link key={index}>
-                            <LinkImg width="25" height="25" src={link.img} alt={`${link.text}-icon`}/>
+                            <LinkImg src={link.img} alt={`${link.text}-icon`}/>
                             <LinkText onClick={() => navigate(`/${link.route}`)}>
                                 {link.text}
                             </LinkText>

@@ -1,8 +1,15 @@
 export const papers = [
     
     {
+        altStyle: {color: '#da6739', fontSize: '1.3rem'},
         name: 'קשיים ואתגרים בחינוך הגופני',
         url: require('./reports/sport-hardships.pdf')
+    },
+    {
+        altStyle: {color: '#da6739', fontSize: '1.3rem'},
+        img: 'https://img.icons8.com/ios/50/video--v1.png',
+        name: 'תקציר לסרטון האבולוציה של החנ"ג',
+        url: require('./reports/sport-evolution.pdf')
     },
     {
         name: 'גמישות – מתאוריה למעשה',
@@ -51,9 +58,5 @@ export const papers = [
     {
         name: 'שינה – מי צריך את זה בכלל?',
         url: require('./reports/sleep.pdf')
-    },
-    {
-        name: 'תקציר לסרטון האבולוציה של החנ"ג',
-        url: require('./reports/sport-evolution.pdf')
     },
 ]

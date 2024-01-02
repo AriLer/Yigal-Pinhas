@@ -260,9 +260,9 @@ const Books = ({heading, active, hideActive}) => {
                     onClick={()=>setCurrActive(book)}
                     src={book.coverSrc} 
                     alt={book.name}
-                    />
-                    </InnerContainer>
-                    )
+                  />
+                </InnerContainer>
+                )
               })}
           <Instructions>לחצו על ספר כדי לקרוא עליו</Instructions>
           <Indicator>

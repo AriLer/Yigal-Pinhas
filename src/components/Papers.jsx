@@ -95,21 +95,29 @@ const ListContainer = styled.div`
 
 const ListItem = styled.button`
   flex: 0 0 calc(25% - 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   border-radius: 10px;
   background-color: var(--light-cream);
   min-height: 6rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: black;
-  z-index: 2;  
+  background: #fffaf5;
+  background: linear-gradient(45deg, #f9f4ee 0%, #fffcf9 100%);  
+  z-index: 2;
   box-shadow:
-  0 1px 1px hsl(0deg 0% 0% / 0.015),
-  0 2px 2px hsl(0deg 0% 0% / 0.015),
-  0 4px 4px hsl(0deg 0% 0% / 0.015),
-  0 8px 8px hsl(0deg 0% 0% / 0.015),
-  0 16px 16px hsl(0deg 0% 0% / 0.015)
+  0 1px 1px hsl(0deg 0% 0% / 0.03),
+  0 2px 2px hsl(0deg 0% 0% / 0.03),
+  0 4px 4px hsl(0deg 0% 0% / 0.03),
+  0 8px 8px hsl(0deg 0% 0% / 0.03),
+  0 16px 16px hsl(0deg 0% 0% / 0.03)
   ;
   padding: 1.5rem;
   
+  border: 1px solid #51312616;
   @media only screen and (max-width: 768px) {
     flex: 0 0 calc(33% - 1rem);
   }
@@ -119,7 +127,7 @@ const ListItem = styled.button`
   }
 
   @media only screen and (min-width: 1440px) {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 `
 
@@ -151,9 +159,12 @@ const Papers = () => {
         key={index}
         className='paper-list-item' 
         value={index}
+        style={item.altStyle && item.altStyle}
+
         onClick={()=>handleClick(index)}
         >
             {item.name}
+            {item.img && <img height='35' width='35' src={item.img} alt={item.name} />}
         </ListItem>
       ))}
       <Blob src={BlobSVG} alt="blob"/>
