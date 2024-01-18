@@ -147,7 +147,7 @@ const Papers = () => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
-    navigate(`/papers/${id}`);
+    navigate(`/מאמרים_/${id}`);
   }
 
   return (

@@ -224,7 +224,7 @@ const Books = ({heading, active, hideActive}) => {
   const handleReadMore = () => {
     const temp = bookNodes.filter((book, idx) => idx != currActive.id)
     setCurrActive(temp[0])
-    navigate(`/books/${currActive.id}`)
+    navigate(`/ספרים/${currActive.id}`)
     window.scrollTo(0, 0)
   }
   

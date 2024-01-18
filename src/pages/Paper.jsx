@@ -89,7 +89,25 @@ const Paper = () => {
     
     const navigate = useNavigate();
 
-    console.log(paper);
+    const downloadPdf = (url, name) => {
+
+        // Creating a link element dynamically
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${name}.pdf`;
+    
+        // Appending the link to the document
+        document.body.appendChild(link);
+    
+        // Triggering the click event to start the download
+        link.click();
+    
+        // Removing the link from the document after the download
+        document.body.removeChild(link);
+    }
+
+
+
     return (
         <Section>
             <Navbar/>
@@ -97,7 +115,7 @@ const Paper = () => {
                         {'< חזרה'}
                 </BackBtn>
         <ViewerContainer>
-            {id == 13 &&
+            {id == 1 &&
                 <>
                 <h3 style={{width: '95%'}}>האבולוציה של החנוך הגופני</h3>
                 <VideoContainer>
@@ -113,13 +131,14 @@ const Paper = () => {
             }
             <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}>
                 <Viewer fileUrl={paper.url} defaultScale={SpecialZoomLevel.PageWidth} plugins={[getFilePluginInstance]}/>
-                <Download>
-                    { (props: RenderDownloadProps) => (
-                    <DownloadBtn onClick={props.onCLick}>
+                {/* <Download> */}
+                    {/* { (props: RenderDownloadProps) => ( */}
+                    {/* <DownloadBtn onClick={props.onClick}> */}
+                    <DownloadBtn onClick={()=> downloadPdf(paper.url, paper.name)}>
                         <img width="30" height="30" src="https://img.icons8.com/material-rounded/24/FFFFFF/download--v1.png" alt="download--v1"/>
                     </DownloadBtn>
-                    )}
-                </Download> 
+                    {/* )} */}
+                {/* </Download>  */}
             </Worker>
         </ViewerContainer>
         <Footer/>

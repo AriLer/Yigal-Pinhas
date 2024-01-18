@@ -177,10 +177,10 @@ const Navbar = () => {
     };
 
     const links = [
-        {text: 'ספרים', route: 'books/0', img: 'https://img.icons8.com/ios/50/book--v1.png'},
-        {text: 'לומדת מולטימדיה', route: 'multimedia', img: 'https://img.icons8.com/ios/50/internet--v1.png'},
-        {text: 'קורסים', route: 'courses', img: 'https://img.icons8.com/ios/50/school.png'},
-        {text: 'מאמרים', route: 'papers', img: 'https://img.icons8.com/ios/50/paper.png'},
+        {text: 'ספרים', route: 'ספרים/0', img: 'https://img.icons8.com/ios/50/book--v1.png'},
+        {text: 'לומדת מולטימדיה', route: 'dvd', img: 'https://img.icons8.com/ios/50/internet--v1.png'},
+        {text: 'קורסים', route: 'קורסים', img: 'https://img.icons8.com/ios/50/school.png'},
+        {text: 'מאמרים', route: 'מאמרים_', img: 'https://img.icons8.com/ios/50/paper.png'},
     ]
 
     return (
