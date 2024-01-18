@@ -180,7 +180,7 @@ const Navbar = () => {
         {text: 'ספרים', route: 'ספרים/0', img: 'https://img.icons8.com/ios/50/book--v1.png'},
         {text: 'לומדת מולטימדיה', route: 'dvd', img: 'https://img.icons8.com/ios/50/internet--v1.png'},
         {text: 'קורסים', route: 'קורסים', img: 'https://img.icons8.com/ios/50/school.png'},
-        {text: 'מאמרים', route: 'מאמרים_', img: 'https://img.icons8.com/ios/50/paper.png'},
+        {text: 'מאמרים', route: 'מאמרים', img: 'https://img.icons8.com/ios/50/paper.png'},
     ]
 
     return (

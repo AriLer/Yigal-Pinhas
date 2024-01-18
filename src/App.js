@@ -13,9 +13,8 @@ const paperRoutes = [
   "תקציר-לסרטון-האבולוציה-של-החנג-דר-יגא",
   "גמישות-מתאוריה-למעשה",
   "ההבדלים-בין-נשים-לגברים-מבחינה-אנטומי",
-  "השפעת-שילוב-מולטימדיה-בתוכנית-הוראה-ב",
   "השפעת-הפעילות-הגופנית-המתונה-או-העצימ",
-
+  "השפעת-שילוב-מולטימדיה-בתוכנית-הוראה-ב",
   "טיפוח-תרבות-עשייה-בקרב-פרחי-הוראה-לחינ",
   "יתרונות-ומגבלות-חדר-כושר",
   "מתיחות-stretching",
@@ -52,14 +51,14 @@ const App = () => {
             <Route path={`/מאמרים/${paperRoutes[3]}`} element={<Navigate to="/מאמרים/3" />}/>
             <Route path={`/מאמרים/${paperRoutes[4]}`} element={<Navigate to="/מאמרים/4" />}/>
             <Route path={`/מאמרים/${paperRoutes[5]}`} element={<Navigate to="/מאמרים/5" />}/>
-            <Route path={`/מאמרים/${paperRoutes[6]}`} element={<Navigate to="/מאמרים/6" />}/>
-            <Route path={`/מאמרים/${paperRoutes[7]}`} element={<Navigate to="/מאמרים/7" />}/>
-            <Route path={`/מאמרים/${paperRoutes[8]}`} element={<Navigate to="/מאמרים/8" />}/>
-            <Route path={`/מאמרים/${paperRoutes[9]}`} element={<Navigate to="/מאמרים/9" />}/>
-            <Route path={`/מאמרים/${paperRoutes[10]}`} element={<Navigate to="/מאמרים/10" />}/>
-            <Route path={`/מאמרים/${paperRoutes[11]}`} element={<Navigate to="/מאמרים/10" />}/>
-            <Route path={`/מאמרים/${paperRoutes[12]}`} element={<Navigate to="/מאמרים/10" />}/>
-            <Route path={`/מאמרים/${paperRoutes[13]}`} element={<Navigate to="/מאמרים/10" />}/>
+            {/* <Route path={`/מאמרים/${paperRoutes[6]}`} element={<Navigate to="/מאמרים/6" />}/>
+            <Route path={`/מאמרים/${paperRoutes[7]}`} element={<Navigate to="/מאמרים/7" />}/> */}
+            <Route path={`/מאמרים/${paperRoutes[6]}`} element={<Navigate to="/מאמרים/8" />}/>
+            <Route path={`/מאמרים/${paperRoutes[7]}`} element={<Navigate to="/מאמרים/9" />}/>
+            <Route path={`/מאמרים/${paperRoutes[8]}`} element={<Navigate to="/מאמרים/10" />}/>
+            <Route path={`/מאמרים/${paperRoutes[9]}`} element={<Navigate to="/מאמרים/11" />}/>
+            <Route path={`/מאמרים/${paperRoutes[10]}`} element={<Navigate to="/מאמרים/12" />}/>
+            <Route path={`/מאמרים/${paperRoutes[11]}`} element={<Navigate to="/מאמרים/13" />}/>
             <Route path={`/${bookRoutes[0]}`} element={<Navigate to="/ספרים/1" />}/>
             <Route path="*" element={<Navigate to="/" />}/>
         </Routes>
