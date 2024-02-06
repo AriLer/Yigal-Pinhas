@@ -5,8 +5,6 @@ import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ScrollToTop from './components/ScrollToTop';
-import { papers } from './static/papers';
-
 
 const paperRoutes = [
   "קשיים-ואתגרים-בחינוך-הגופני",

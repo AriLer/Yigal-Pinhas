@@ -118,6 +118,7 @@ const MobileContainer = styled.div`
         0 8px 8px hsl(0deg 0% 0% / 0.075),
         0 16px 16px hsl(0deg 0% 0% / 0.075)
     ;
+    border: 1px solid #eae2e0b6;
     display: none;
 
     @media only screen and (max-width: 768px) {
@@ -130,7 +131,7 @@ const MobileContainer = styled.div`
 `
 
 const Hamburger = styled.img`
-    height: calc(45px);
+    height: calc(40px);
     margin: 10px;
     opacity: 0.8;
 
@@ -185,7 +186,7 @@ const Navbar = () => {
 
     return (
         <NavbarSection>
-            <MobileContainer style={!isOpen ? {width: '65px', height: '65px'}: {}}>
+            <MobileContainer style={!isOpen ? {width: '60px', height: '60px'}: {}}>
                 <Hamburger 
                     onClick={handleOpen} 
                     src={isOpen ? MenuEnd : MenuStart}

@@ -85,12 +85,12 @@ const Rational = styled.p`
 const Gallery = styled.div`
   flex: 4;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
   margin-bottom: 2rem;
-
+  
   @media only screen and (max-width: 768px) {
+    justify-content: center;
     align-items: flex-end;
     gap: 1.5rem;
   }
@@ -127,7 +127,8 @@ const Credit = styled.p`
   font-size: .85rem;
   opacity: 0.7;
   text-align: center;
-  margin: 0;
+  margin: auto;
+  margin-top: 10px;
 `
 
 const DVD = () => {

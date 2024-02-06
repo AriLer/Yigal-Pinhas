@@ -6,7 +6,6 @@ import '@react-pdf-viewer/core/lib/styles/index.css'; // Import default styles
 import styled from 'styled-components';
 import { Navbar, Footer } from '../components';
 import { getFilePlugin } from '@react-pdf-viewer/get-file';
-import { RenderDownloadProps } from '@react-pdf-viewer/get-file';
     
 
 const Section = styled.section`
@@ -85,8 +84,7 @@ const Paper = () => {
     const paper = papers[id]
     const pdfjsVersion = require('pdfjs-dist/package.json').version;
     const getFilePluginInstance = getFilePlugin();
-    const { Download } = getFilePluginInstance;
-    
+
     const navigate = useNavigate();
 
     const downloadPdf = (url, name) => {
@@ -131,14 +129,9 @@ const Paper = () => {
             }
             <Worker workerUrl={`https://unpkg.com/pdfjs-dist@${pdfjsVersion}/build/pdf.worker.min.js`}>
                 <Viewer fileUrl={paper.url} defaultScale={SpecialZoomLevel.PageWidth} plugins={[getFilePluginInstance]}/>
-                {/* <Download> */}
-                    {/* { (props: RenderDownloadProps) => ( */}
-                    {/* <DownloadBtn onClick={props.onClick}> */}
-                    <DownloadBtn onClick={()=> downloadPdf(paper.url, paper.name)}>
-                        <img width="30" height="30" src="https://img.icons8.com/material-rounded/24/FFFFFF/download--v1.png" alt="download--v1"/>
-                    </DownloadBtn>
-                    {/* )} */}
-                {/* </Download>  */}
+                <DownloadBtn onClick={()=> downloadPdf(paper.url, paper.name)}>
+                    <img width="30" height="30" src="https://img.icons8.com/material-rounded/24/FFFFFF/download--v1.png" alt="download--v1"/>
+                </DownloadBtn>
             </Worker>
         </ViewerContainer>
         <Footer/>

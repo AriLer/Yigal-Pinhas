@@ -11,6 +11,7 @@ export const bookNodes = [
             color: '#65b3e155',
             direction: "rtl",
             coverSrc: require("../assets/client-images/holistic-fitness.webp"),
+            fullCover: require("../assets/client-images/Holistic-fitness-book-full-cover.png"),
             purchaseUrl: "https://www.mendele.co.il/product_author/%D7%93%D7%A8-%D7%99%D7%92%D7%90%D7%9C-%D7%A4%D7%A0%D7%97%D7%A1/"
         },
         {
@@ -25,6 +26,7 @@ export const bookNodes = [
             color: '#65b3e155',
             direction: "rtl",
             coverSrc: require("../assets/client-images/complete-guide.png"),
+            fullCover: require("../assets/client-images/complete-guide-full-cover.jpg"),
             purchaseUrl: ""
         },
         {
@@ -39,6 +41,7 @@ export const bookNodes = [
             direction: "ltr",
             color: '#65b3e155',
             coverSrc: require("../assets/client-images/personal-trainer.webp"),
+            fullCover: require("../assets/client-images/Personal-trainer-full-cover.png"),
             purchaseUrl: "https://www.goodreads.com/book/show/160857448-be-your-own-personal-trainer"
         },
         {
@@ -53,6 +56,7 @@ export const bookNodes = [
             direction: "ltr",
             color: '#65b3e155',
             coverSrc: require("../assets/client-images/complete-holistic-guide.png"),
+            fullCover: require("../assets/client-images/complete-holistic-guide.png"),
             purchaseUrl: ""
         },
         {
@@ -67,6 +71,7 @@ export const bookNodes = [
             direction: "rtl",
             color: '#65b3e155',
             coverSrc: require("../assets/client-images/stretching.webp"),
+            fullCover: require("../assets/client-images/stretching-full-cover.jpg"),
             purchaseUrl: "https://www.mendele.co.il/product_author/%D7%93%D7%A8-%D7%99%D7%92%D7%90%D7%9C-%D7%A4%D7%A0%D7%97%D7%A1/"
         }
     ]

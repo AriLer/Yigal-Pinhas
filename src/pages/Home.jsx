@@ -1,5 +1,5 @@
 import React, {useRef} from 'react'
-import {Hero, About, Books, Papers, Courses, Footer, DVD, Navbar} from '../components/index'
+import {Hero, About, Books, Footer, DVD, Navbar} from '../components/index'
 
 const Home = () => {
 

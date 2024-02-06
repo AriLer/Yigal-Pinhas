@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {Books, Footer} from '../components/index'
 import BlobSVG from '../assets/internal-images/heroBlob.svg'
 import Navbar from '../components/Navbar'
-import {useParams, useNavigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 const Section = styled.section`
     background-color: var(--light-cream);
@@ -54,6 +54,14 @@ const Blob = styled.img`
     z-index: 1;
 `
 
+const FullCover = styled.img`
+    width: ${props => (props.size === 2 ? "60%" : "40%")};
+    margin: auto;
+    align-self: center;
+    padding: ${props => (props.size === 2 ? "2% 20%" : "2% 30%")};
+
+`
+
 const BookSummery = () => {
     const {id} = useParams();
     console.log(id);
@@ -94,6 +102,7 @@ const BookSummery = () => {
                         {content.points.map(p=> <li>{p}</li>)}
                     </ul>
                 }
+               
                 {node.purchaseUrl ? 
                     <div>
                         <h3 style={{lineHeight: '2.5rem'}}>
@@ -113,6 +122,10 @@ const BookSummery = () => {
                     </h4>)
                     )
                 }
+
+                {console.log("full-cover: ", node.fullCover)}
+                {node.fullCover && <FullCover size={id === "3" ? 1 : 2} src={node.fullCover} alt='full cover' />}
+
             </Content>
         </Section>
         <Books heading="ספרים נוספים" active={id} hideActive={true}/>
