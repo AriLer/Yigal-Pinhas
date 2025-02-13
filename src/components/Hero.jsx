@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import YogaGirl from './../assets/internal-images/woman-stretching-light.webp'
+// import YogaGirl from './../assets/internal-images/woman-stretching-light.webp'
+import HeroImage2 from './../assets/client-images/hero-image-2.webp'
 import GuyWorkingOut from './../assets/internal-images/man-dumbels.webp'
 import DumbellSVG from './../assets/internal-images/weight.svg'
 import Tilt from './Tilt'
-import MobileHeroImgSrc from './../assets/internal-images/MobileHero.png'
+// import MobileHeroImgSrc from './../assets/internal-images/MobileHero.png'
 
 
 const HeroSection = styled.section`
@@ -146,9 +147,9 @@ const HeroGuy = styled.img`
 const HeroGirl = styled.img`
   border-radius: 15px;
   position: absolute;
-  width: 65%;
+  width: 90%;
   bottom: 10%;
-  left: 20vw;
+  left: 10vw;
   
   @media only screen and (max-width: 768px) {
     display: none;
@@ -184,7 +185,7 @@ const Hero = ({targetRef}) => {
 
   return (
    <HeroSection id="main">
-      <MobileHeroImg src={MobileHeroImgSrc}/>
+      <MobileHeroImg src={HeroImage2}/>
       <HeroTextContainer
         data-aos='fade-up' data-aos-duration='1500' data-aos-delay="500"
       >
@@ -208,7 +209,7 @@ const Hero = ({targetRef}) => {
           data-aos='fade-up' data-aos-duration='1500' style={{position: 'relative', height: '100%', width: '100%'}}
         >
             <HeroGuy src={GuyWorkingOut} alt='guy working out with tire'/>
-            <HeroGirl src={YogaGirl} alt='girl doing yoga image'/>
+            <HeroGirl src={HeroImage2} alt='girl doing yoga image'/>
         </div>
       </TiltContainer>
       <Dumbell src={DumbellSVG} alt='guy working out with tire'/>
