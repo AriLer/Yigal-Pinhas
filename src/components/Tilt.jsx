@@ -11,9 +11,10 @@ const options = {
 const Tilt = (props) => {
     const {...rest } = props;
     const tilt = useRef(null);
+    
     useEffect(() => {
       VanillaTilt.init(tilt.current, options);
-    }, [options]);
+    }, []);
   
     return <div ref={tilt} {...rest} />;
   }
