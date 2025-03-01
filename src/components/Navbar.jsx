@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/globalStyles.css";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguageContext } from "../context/LanguageContext";
@@ -23,24 +23,32 @@ const NavbarSection = styled.nav`
   z-index: 100;
   top: 0;
   direction: ${({ lng }) => (lng === "he" ? "rtl" : "ltr")};
+
+  @media only screen and (max-width: 768px) {
+    direction: ${({ lng }) => (lng === "en" ? "rtl" : "ltr")};
+  }
 `;
 
 const NavbarContainer = styled.div`
   background: linear-gradient(180deg, var(--cream), #fef4ea);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 2px solid #51312684;
   position: relative;
   height: 100%;
   padding: 0 5%;
   gap: 2rem;
 
+  @media only screen and (max-width: 1024px) {
+    padding: 0 5%;
+  }
   @media only screen and (max-width: 768px) {
     display: none;
   }
 
   @media only screen and (min-width: 1440px) {
-    padding: 0 10%;
+    padding: 0 5%;
   }
 `;
 
@@ -53,7 +61,6 @@ const HomeLink = styled.button`
   font-weight: bold;
   display: flex;
   background-color: transparent;
-  padding: 13px;
   font-size: 1.45rem;
   color: var(--dark-brown);
   margin: 1% 0;
@@ -65,7 +72,7 @@ const HomeLink = styled.button`
   }
 
   @media only screen and (max-width: 992px) {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     padding: 0px;
   }
 `;
@@ -86,8 +93,8 @@ const Link = styled.div`
     transition: color 0.2s ease-in-out, box-shadow 0.5s ease-in-out;
   }
 
-  @media only screen and (max-width: 992px) {
-    padding: 0 2vw;
+  @media only screen and (max-width: 1024px) {
+    padding: 0 1.5vw;
   }
 
   a {
@@ -105,6 +112,10 @@ const Link = styled.div`
     }
   }
 `;
+
+const DeskTopLngSwitcher = styled.div`
+  /* justify-self: right; */
+`
 
 // --- Mobile Styling ---
 const MobileContainer = styled.div`
@@ -134,6 +145,9 @@ const Hamburger = styled.div`
   border-radius: 15px;
   height: 60px;
   width: 60px;
+  svg {
+    margin: 0.5rem;
+  }
 `;
 
 const MobileNavbarContainer = styled.div`
@@ -142,8 +156,9 @@ const MobileNavbarContainer = styled.div`
   width: 65%;
   max-width: 20rem;
   position: absolute;
-  left: ${({ lng }) => (lng === "he" ? "unset" : "0")};
-  right: ${({ lng }) => (lng === "he" ? "0" : "unset")};
+  right: ${({ lng }) => (lng === "he" ? "unset" : "0")};
+  left: ${({ lng }) => (lng === "he" ? "0" : "unset")};
+  direction: ${({ lng }) => (lng === "he" ? "rtl" : "ltr")};
   top: 0;
   transition: all 0.2s ease-in-out;
 `;
@@ -165,15 +180,7 @@ const ModalLink = styled.div`
   }
 `;
 
-const SwitcherContainer = styled.div`
-  align-self: end;
-  position: absolute;
-  left: ${({ lng }) => (lng === "he" ? "5%" : "unset")};
-  right: ${({ lng }) => (lng === "he" ? "unset" : "5%")};
-  top: 0;
-  width: 5rem;
-  height: 5rem;
-`;
+const SwitcherContainer = styled.div``;
 
 const Mask = styled.div`
   position: absolute;
@@ -182,13 +189,49 @@ const Mask = styled.div`
   top: 0;
   background-color: #0000002f;
   transition: all 0.2s ease-in-out;
-`
+`;
+
+const TopRow = styled.div`
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  position: relative;
+  svg {
+    margin: 0;
+  }
+`;
+
+export const getNavLinks = (lng) => [
+  {
+    attr: "Books",
+    route: lng === "he" ? "books/0" : "books/6",
+    icon: <IconBook size={27} />,
+  },
+  {
+    attr: "MultimediaShort",
+    route: "dvd",
+    icon: <IconWorld size={27} />,
+  },
+  {
+    attr: "Courses",
+    route: "courses",
+    icon: <IconCertificate size={27} />,
+  },
+  {
+    attr: "Articles",
+    route: "articles",
+    icon: <IconNews size={27} />,
+  },
+];
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { lng, id } = useParams();
   const [isOpen, setIsOpen] = useState(false);
   const { isHebrew } = useLanguageContext();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleOpen = () => {
     if (isOpen) {
@@ -198,59 +241,42 @@ const Navbar = () => {
     }
   };
 
-  const links = [
-    {
-      attr: "Books",
-      route: "ספרים/0",
-      icon: <IconBook size={27} />,
-    },
-    {
-      attr: "Multimedia",
-      route: "dvd",
-      icon: <IconWorld size={27} />,
-    },
-    {
-      attr: "Courses",
-      route: "קורסים",
-      icon: <IconCertificate size={27} />,
-    },
-    {
-      attr: "Articles",
-      route: "מאמרים",
-      icon: <IconNews size={27} />,
-    },
-  ];
-
   return (
     <NavbarSection lng={i18n.language}>
       {/* Mobile Sidebar*/}
       <MobileContainer>
         <Hamburger>
-          <IconMenu2 onClick={handleOpen} size={50} />
+          <IconMenu2 onClick={handleOpen} size={60} />
         </Hamburger>
-        {isOpen && <Mask></Mask>}
+        {isOpen && <Mask onClick={handleOpen}></Mask>}
         <MobileNavbarContainer
-          style={{ transform: `translateX(${isOpen ? "0" : (i18n.language === 'he' ? '100%': '-100%')})` }}
+          style={{
+            transform: `translateX(${
+              isOpen ? "0" : i18n.language === "he" ? "-100%" : "100%"
+            })`,
+          }}
           lng={i18n.language}
         >
-          <IconX onClick={handleOpen} size={50} />
+          <TopRow>
+            <SwitcherContainer lng={i18n.language}>
+              <LanguageSwitcher />
+            </SwitcherContainer>
 
-          <SwitcherContainer lng={i18n.language}>
-            <LanguageSwitcher />
-          </SwitcherContainer>
+            <IconX onClick={handleOpen} size={50} />
+          </TopRow>
 
           <ModalLink
             className={isOpen ? "open" : ""}
-            onClick={() => navigate(`/`)}
+            onClick={() => navigate(`/${i18n.language}`)}
           >
             <IconHome size={30} />
             {t("Home")}
           </ModalLink>
-          {links.map((link, index) => (
+          {getNavLinks(i18n.language).map((link, index) => (
             <ModalLink
               className={isOpen ? "open" : ""}
               key={index}
-              onClick={() => navigate(`/${link.route}`)}
+              onClick={() => navigate(`/${i18n.language}/${link.route}`)}
             >
               {link.icon}
               {t(link.attr)}
@@ -262,16 +288,24 @@ const Navbar = () => {
 
       {/* Desktop Navbar */}
       <NavbarContainer>
-        <HomeLink onClick={() => navigate(`/`)}>{t("YigalPinchas")}</HomeLink>
+        <HomeLink onClick={() => navigate(`/${i18n.language}`)}>
+          {t("YigalPinchas")}
+        </HomeLink>
         <LinksContainer>
-          {links.map((link, index) => (
-            <Link onClick={()=>navigate(link.route)} isHebrew={isHebrew} key={index}>
+          {getNavLinks(i18n.language).map((link, index) => (
+            <Link
+              onClick={() => navigate(`/${i18n.language}/${link.route}`)}
+              isHebrew={isHebrew}
+              key={index}
+            >
               {link.icon}
               <a>{t(link.attr)}</a>
             </Link>
           ))}
         </LinksContainer>
+        <DeskTopLngSwitcher>
         <LanguageSwitcher />
+        </DeskTopLngSwitcher>
       </NavbarContainer>
     </NavbarSection>
   );

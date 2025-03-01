@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Worker, Viewer, SpecialZoomLevel } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css"; // Import default styles
@@ -11,6 +11,8 @@ const Section = styled.section`
   min-height: 100vh;
   padding-top: 10vh;
   background-color: var(--light-cream);
+  direction: ${({ lng }) => (lng === "he" ? "rtl" : "ltr")};
+  text-align: ${({ lng }) => (lng === "he" ? "right" : "left")};
 `;
 
 const BackBtn = styled.button`
@@ -84,23 +86,28 @@ const DownloadBtn = styled.button`
 
 const Paper = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { lng, id } = useParams();
   const { t, i18n } = useTranslation();
   const getFilePluginInstance = getFilePlugin();
 
-  const ArticlesArr = Object.entries(t("ArticlesData", { returnObjects: true })).map(([key, val]) => val);
- 
+  const ArticlesArr = Object.entries(
+    t("ArticlesData", { returnObjects: true })
+  ).map(([key, val]) => val);
+
+  useEffect(() => {
+    if (i18n.language !== lng) {
+      i18n.changeLanguage(lng);
+    }
+  }, []);
+  
   // if more articles in one language than the other
-  if(id > ArticlesArr.length -1) {
-    navigate('/מאמרים')
-    return <></>
+  if (id > ArticlesArr.length - 1) {
+    navigate(`/${i18n.language}/articles`);
+    return <></>;
   }
 
   const paper = ArticlesArr[id];
   const pdfjsVersion = require("pdfjs-dist/package.json").version;
-
-  console.log("paper: ", paper.name);
-
 
   const downloadPdf = (url, name) => {
     // Creating a link element dynamically
@@ -119,8 +126,8 @@ const Paper = () => {
   };
 
   return (
-    <Section>
-      <BackBtn onClick={() => navigate('/מאמרים')}>
+    <Section lng={i18n.language}>
+      <BackBtn onClick={() => navigate(`/${i18n.language}/articles`)}>
         {i18n.language === "he" ? (
           <IconArrowRight size={20} />
         ) : (

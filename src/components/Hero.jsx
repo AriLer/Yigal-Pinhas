@@ -4,6 +4,7 @@ import GuyWorkingOut from "./../assets/internal-images/man-dumbels.webp";
 import DumbellSVG from "./../assets/internal-images/weight.svg";
 import Tilt from "./Tilt";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 const HeroSection = styled.section`
   display: flex;
@@ -56,7 +57,7 @@ const HeroTextContainer = styled.div`
 
 const HeroText = styled.h1`
   margin-bottom: 0;
-  font-size: 5rem;
+  font-size: 4.2rem;
   line-height: 5rem;
 
   @media only screen and (max-width: 768px) {
@@ -89,26 +90,23 @@ const HeroDesc = styled.p`
 `;
 
 const ActionButton = styled.button`
-  height: 3rem;
-  width: 7rem;
   font-size: 20px;
-
+  padding: 1rem 1rem;
+  
   @media only screen and (min-width: 1440px) {
-    height: 4rem;
-    width: 8rem;
+    padding: 1.25rem 1.25rem;
   }
-
+  
   @media only screen and (max-width: 768px) {
     margin-top: 2.5rem;
-    height: 4rem;
-    width: 9rem;
+    padding: 1.25rem 1rem;
   }
 `;
 
 const TiltContainer = styled(Tilt)`
   height: 70vh;
   flex: 3;
-  margin: 10% 0 0%;
+  margin: 5% 0 0%;
   position: relative;
   left: -1%;
 
@@ -169,11 +167,15 @@ const MobileHeroImg = styled.img`
   @media only screen and (max-width: 768px) {
     display: block;
     width: 100%;
+    max-height: 38vh;
+    object-fit: cover;
+    object-position: top;
   }
 `;
 
 const Hero = ({ targetRef }) => {
   const { t, i18n } = useTranslation();
+  const {lng} = useParams();
 
   const scrolllToAbout = () => {
     if (targetRef.current) {
@@ -182,9 +184,9 @@ const Hero = ({ targetRef }) => {
   };
 
   return (
-    <HeroSection id="main">
+    <HeroSection lng={lng} id="main">
       <MobileHeroImg
-        src={require(`../assets/client-images/Books/3-books-${i18n.language}.jpg`)}
+        src={require(`../assets/client-images/Books/3-books-${lng}.jpg`)}
       />
       <HeroTextContainer
         data-aos="fade-up"

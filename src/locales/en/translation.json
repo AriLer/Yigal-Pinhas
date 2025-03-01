@@ -6,6 +6,7 @@
   "Books": "Books",
   "Articles": "Articles",
   "Courses": "Courses",
+  "MultimediaShort": "The Multimedia",
   "Multimedia": "The DVD Multimedia",
   "HeroSubtitle": "Physical activity and health promotion",
   "HeroDescription": "Senior lecturer at Seminar Hakibbutzim College, physical education teacher in high schools in Tel Aviv. Visiting professor at the University of Calgary in Canada.",
@@ -14,6 +15,7 @@
   "AboutMain": "<p>Many of my friends and students asked me to write about my challenging, surprising,  and inspiring life story... </p><p>Until the age of 18 (recruitment age), I grew up for 14 years in various boarding school  settings. I learned silence from the chatterboxes, kindness from the cruel-hearted, and  patience from the impatient. To my greatest surprise, I am not grateful to these teachers  of mine. <p/><p>Nevertheless, I've come to realize that necessity is the mother of invention, that to know  how to get up you must not fear falling, and that patience is bitter but its fruit is sweet! </p><p>I chose to write and focus on the \"toolbox containing tools for life\" - these tools are the  strengths and powers in the holistic approach I developed throughout my life. This  approach first proved its effectiveness to me in promoting a healthy and active lifestyle,  and later contributed greatly to those around me. Many of his friends and students  asked me to write </p><p>This holistic approach not only benefited me and those close to me, but also profoundly  impacted the readers of my books. Many of them shared with me how the tools I  presented helped them deal with life's challenges more effectively. My readers reported  significant improvement in their ability to identify their personal strengths and use them  as leverage for growth. They learned to see obstacles as opportunities for developing  creative solutions, just as I learned that \"necessity is the mother of invention.\"</p>",
   "YigalMail": "yigalpinchas@gmail.com",
   "Back": "Back",
+  "Copyright": "Yigal Pinchas Ph.D Copyright © 2025 · All Rights Reserved",
   "MultimediaInfo": [
     "The following courses: Anatomy, Physiology, Kinesiology, Theoretical Physical Fitness, Training Sciences, Gyms, Practical Physical Fitness, and Biomechanics are mostly mandatory courses in the training process of teacher candidates in the School for Advanced Studies, the School for Advanced Learning, the School of Physical Education and Movement, the Faculty of Medicine specializing in Physiotherapy studies, and in the Faculty of Kinesiology, and more...",
     "<strong>The literature on these subjects is extensive and very expensive.</strong>",
@@ -23,7 +25,7 @@
     "Therefore, we decided to develop an extensive multimedia guide worth <strong>$300,000</strong> which will be a <strong>winning combination</strong> between academic research knowledge in the fields of human body sciences and thoughtful, intelligent practice that will lead to a healthy lifelong journey."
   ],
   "MultimediaContact": "For purchase, contact ",
-
+  "404": "404 - Not Found!",
   "CoursesInfo": [
     {
       "location": "Training Theory at Washington Hills College",

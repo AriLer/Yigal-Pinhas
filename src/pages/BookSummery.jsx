@@ -1,9 +1,9 @@
-import React from "react";
-import { bookNodes, bookContent } from "../static/books";
+import React, { useEffect, useState } from "react";
+import { bookNodes } from "../static/books";
 import styled from "styled-components";
 import { Books } from "../components/index";
 import BlobSVG from "../assets/internal-images/heroBlob.svg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Section = styled.section`
@@ -13,21 +13,49 @@ const Section = styled.section`
   padding-top: 10%;
   overflow: hidden;
   min-height: 100vh;
+  /* direction: ${({ lng }) => (lng === "he" ? "rtl" : "ltr")}; */
+  /* text-align: ${({ lng }) => (lng === "he" ? "right" : "left")}; */
+  /* background-image: url(${BlobSVG}); */
+  /* background-size: fit; */
+  /* background-position: right; */
+  /* background- */
+  /* background-position-y: -35%; */
+  /* background-position-x: 0%; */
+  /* background-repeat: no-repeat; */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 3rem;
+    left: 4rem;
+    width: 100%;
+    height: 100%;
+    background-image: url(${BlobSVG});
+    background-size: cover;
+    transform: rotate(45deg); /* Change the angle as needed */
+    transform-origin: center center;
+    z-index: -1;
+  }
 
   @media only screen and (min-width: 1440px) {
     padding: 5% 10%;
+  }
+
+  @media only screen and (max-width: 769px) {
+    padding: 5%;
   }
 `;
 
 const Title = styled.h2`
   z-index: 10;
-  width: 70%;
+  width: 80%;
   margin-bottom: 2rem;
+  font-size: 3rem;
 
   @media only screen and (max-width: 576px) {
     margin-top: 4rem;
-    font-size: 3.5rem;
-    width: 95%;
+    font-size: 2.2rem;
+    width: 100%;
   }
 `;
 
@@ -42,17 +70,6 @@ const Purchase = styled.a`
   line-height: 2rem;
 `;
 
-const Email = styled.span`
-  margin-top: 1rem;
-  font-size: 1.3rem;
-  font-weight: 400;
-`;
-
-const Blob = styled.img`
-  position: absolute;
-  z-index: 1;
-`;
-
 const FullCover = styled.img`
   width: ${(props) => (props.size === 2 ? "60%" : "40%")};
   margin: auto;
@@ -61,35 +78,40 @@ const FullCover = styled.img`
 `;
 
 const BookSummery = () => {
-  const { id } = useParams();
+  const { lng, id } = useParams();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
-  const node = bookNodes[id];
-  const content = bookContent[id];
+  const node = bookNodes.find((n) => n.id == id);
 
-  const scaler1 = window.innerWidth > 576 ? 10 : 2;
-  const scaler2 = window.innerWidth > 576 ? 1 : 20;
+  // switch to the first book if the language was switched
+  useEffect(() => {
+    if (node.language !== lng) {
+      const temp = bookNodes.find((n) => n.language === lng);
+      navigate(`/${lng}/books/${temp.id}`);
+      setIsLoading(false);
+    } else {
+      setIsLoading(false);
+    }
+  }, [lng]);
 
-  const blobStyle = {
-    top: `${node.direction === "rtl" ? "-75vh" : "-82vh"}`,
-    left: `${node.direction === "rtl" ? `-${120 / scaler1}%` : ""}`,
-    right: `${node.direction === "rtl" ? "" : `-${1 * scaler2}%`}`,
-    transform: `scaleX(${node.direction === "rtl" ? "1" : "-1"})`,
-  };
+  if (isLoading) {
+    return <></>;
+  }
+
   return (
     <>
-      <Section style={{ direction: node.direction }}>
-        <Blob style={blobStyle} src={BlobSVG} alt="blob" />
+      <Section lng={i18n.language}>
         <Title>{node.name}</Title>
 
         <Content>
-          {content.subHeading && <h4>{content.subHeading}</h4>}
-          {content.paragraphs.map((p) => (
-            <div dangerouslySetInnerHTML={{ __html: p }}></div>
+          {node.paragraphs.map((p, idx) => (
+            <div key={idx} dangerouslySetInnerHTML={{ __html: p }}></div>
           ))}
-          {content.points && (
+          {node.points && (
             <ul>
-              {content.points.map((p) => (
+              {node.points.map((p) => (
                 <li>{p}</li>
               ))}
             </ul>
@@ -113,10 +135,14 @@ const BookSummery = () => {
             <h4>{node.purchaseMessage}</h4>
           )}
 
-          {console.log("full-cover: ", node.fullCover)}
           {node.fullCover && (
             <FullCover
-              size={id === "3" ? 1 : 2}
+              size={
+                node.name ===
+                "The Complete Holistic Guide To Working Out In The Gym"
+                  ? 1
+                  : 2
+              }
               src={node.fullCover}
               alt="full cover"
             />

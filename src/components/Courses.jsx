@@ -13,8 +13,10 @@ const CoursesSeciton = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   overflow-x: hidden;
+  direction: ${({ dir }) => dir};
+  text-align: ${({ dir }) => (dir === "rtl" ? "right" : "left")};
 
   @media only screen and (min-width: 1440px) {
     padding: 0 10%;
@@ -22,8 +24,13 @@ const CoursesSeciton = styled.section`
 `;
 
 const SectionTitle = styled.h2`
-  @media only screen and (max-width: 576px) {
+  margin-bottom: 1.5rem;
+
+  @media only screen and (max-width: 1025px) {
+  }
+  @media only screen and (max-width: 769px) {
     margin-top: 10vh;
+    /* margin-bottom: 0; */
   }
 `;
 
@@ -55,7 +62,7 @@ const CourseNode = styled.div`
   margin-bottom: 1rem;
 
   @media only screen and (min-width: 1440px) {
-    padding: 2vh 6%;
+    padding: 2vh 5%;
   }
 
   @media only screen and (max-width: 768px) {
@@ -66,43 +73,49 @@ const CourseNode = styled.div`
     padding: 1vh 7%;
     min-height: 20vh;
   }
-`;
 
-const CourseTitle = styled.h4`
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 1rem auto 0rem auto;
-`;
-
-const LecturesList = styled.ul`
-  list-style-type: none;
-  padding-right: 1rem;
-  font-size: 0.9rem;
-
-  @media only screen and (min-width: 1200px) {
-    font-size: 1rem;
-  }
-`;
-
-const LectureItem = styled.li`
-  margin-bottom: 0.5rem;
-  line-height: 1.2rem;
-
-  @media only screen and (min-width: 1440px) {
-    margin-bottom: 0.7vh;
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem auto 0rem auto;
   }
 
-  @media only screen and (min-width: 1200px) {
-    line-height: 25px;
+  ul {
+    list-style-type: none;
+    font-size: 0.9rem;
+    padding-inline-start: 10px;
+
+    @media only screen and (min-width: 1200px) {
+      font-size: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.7rem;
+      line-height: 1.1rem;
+
+
+      @media only screen and (min-width: 1440px) {
+        margin-bottom: 1.5vh;
+        margin-bottom: 0.5rem;
+      }
+
+      @media only screen and (min-width: 1200px) {
+        line-height: 1.25rem;
+        line-height: 1.5rem;
+      }
+    }
   }
 `;
 
 const Blob = styled.img`
   position: absolute;
   z-index: -10;
-  right: 0;
+  /* right: 0; */
   top: -5%;
   width: 50%;
+  right: ${({ lng }) => (lng === "he" ? "unset" : "0")};
+  left: ${({ lng }) => (lng === "he" ? "0" : "unset")};
+  transform: ${({ lng }) => (lng === "he" ? "scaleX(-1)" : "scaleX(1)")};
 
   @media only screen and (max-width: 768px) {
     width: 60%;
@@ -110,20 +123,22 @@ const Blob = styled.img`
 
   @media only screen and (max-width: 576px) {
     top: 0%;
-    right: 45%;
-    transform: scaleX(-1);
+    transform: ${({ lng }) => (lng === "he" ? "scaleX(-1)" : "scaleX(1)")};
   }
 `;
 
 const Girl = styled.img`
   position: absolute;
   z-index: -10;
-  right: 25%;
+  right: ${({ lng }) => (lng === "he" ? "unset" : "20%")};
+  left: ${({ lng }) => (lng === "he" ? "20%" : "unset")};
   top: 0.5rem;
-  height: 25%;
+  height: 20%;
 
   @media only screen and (min-width: 1440px) {
-    right: 25%;
+    height: 25%;
+    right: ${({ lng }) => (lng === "he" ? "unset" : "20%")};
+    left: ${({ lng }) => (lng === "he" ? "20%" : "unset")};
   }
 
   @media only screen and (max-width: 768px) {
@@ -144,17 +159,15 @@ const BookStack = styled.img`
 `;
 
 const Courses = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const courses = t("CoursesInfo", { returnObjects: true });
   const coursesArray = Object.entries(courses).map(([key, value]) => value);
 
-  console.log("courses: ", coursesArray);
-
   return (
-    <CoursesSeciton>
-      <Blob src={BlobSVG} alt="Blob" />
-      <Girl src={GirlStudyingSVG} alt="girl doing yoga" />
+    <CoursesSeciton dir={i18n.language == "he" ? "rtl" : "ltr"}>
+      <Blob lng={i18n.language} src={BlobSVG} alt="Blob" />
+      <Girl lng={i18n.language} src={GirlStudyingSVG} alt="girl doing yoga" />
       <SectionTitle>{t("Courses")}</SectionTitle>
       <CourseGrid>
         <CourseCol>
@@ -176,12 +189,12 @@ export default Courses;
 const SingleCourse = ({ item }) => {
   return (
     <CourseNode className="pretty-shadow">
-      <CourseTitle>{item.location}</CourseTitle>
-      <LecturesList style={{ height: item.courses.length === 3 && "75px" }}>
+      <h4>{item.location}</h4>
+      <ul style={{ height: item.courses.length === 3 && "100px" }}>
         {item.courses.map((l) => (
-          <LectureItem key={`lecture-item-${l}`}>{l}</LectureItem>
+          <li key={`lecture-item-${l}`}>{l}</li>
         ))}
-      </LecturesList>
+      </ul>
     </CourseNode>
   );
 };

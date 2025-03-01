@@ -6,7 +6,7 @@ import img3 from "../assets/client-images/DVD/gallery-3.webp";
 import img4 from "../assets/client-images/DVD/gallery-4.webp";
 import img5 from "../assets/client-images/DVD/DVD.png";
 import { useTranslation } from "react-i18next";
-
+import { useParams } from "react-router-dom";
 
 const Section = styled.section`
   background-color: var(--light-cream);
@@ -25,26 +25,19 @@ const Section = styled.section`
 
 const MainContent = styled.div`
   height: 70%;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4%;
   margin: 2rem 0;
 
   @media only screen and (max-width: 576px) {
-    flex-direction: column;
     height: 85%;
-    justify-content: space-around;
     gap: 0%;
   }
 `;
 
 const Cover = styled.img`
-  float: left;
-  margin: 0 2rem 2rem 0;
-  flex: 1;
+  float: ${({ lng }) => (lng === "he" ? "left" : "right")};
+  margin: ${({ lng }) => (lng === "he" ? "0 2rem 2rem 0" : "0 0rem 2rem 2rem")};
   width: 35%;
-  object-fit: cover;
+
   @media only screen and (max-width: 768px) {
     width: 45%;
   }
@@ -57,10 +50,7 @@ const Cover = styled.img`
 `;
 
 const TextContent = styled.div`
-  flex: 3;
-
   @media only screen and (max-width: 576px) {
-    flex: 3;
     width: 90%;
     text-align: justify;
     margin: auto;
@@ -116,6 +106,7 @@ const GalleryItem = styled.img`
 
 const Purchase = styled.h3`
   font-size: 1.3rem;
+  text-align: start;
 `;
 
 const Email = styled.span`
@@ -131,15 +122,16 @@ const Credit = styled.p`
 `;
 
 const data = [
-  "אנטומיה, פיזולוגיה, קנסיולוגיה, תורת הכושר הגופני עיוני, מדעי האימון, חדרי כושר, כושר גופני מעשי וביומכניקה הם ברובם קורסי חובה בתהליך הכשרת פרחי ההוראה בביה\"ס להשתלמויות, ביה\"ס ללמודים מתקדמים, ביה\"ס לחינוך גופני ותנועה, פקולטה לרפואה בהתמחות ללימודי פיזיותרפיה, ובפקולטה לקניסיולוגיה",
+  'אנטומיה, פיזולוגיה, קנסיולוגיה, תורת הכושר הגופני עיוני, מדעי האימון, חדרי כושר, כושר גופני מעשי וביומכניקה הם ברובם קורסי חובה בתהליך הכשרת פרחי ההוראה בביה"ס להשתלמויות, ביה"ס ללמודים מתקדמים, ביה"ס לחינוך גופני ותנועה, פקולטה לרפואה בהתמחות ללימודי פיזיותרפיה, ובפקולטה לקניסיולוגיה',
   "<strong>הספרות בנושאים אלו רבה ויקרה מאד</strong>",
   "אלה נושאים מורכבים ודורשים הבנה עמוקה, שינון רב ותפיסה חזותית ובחלק רב נדרשים יכולות הפשטה ותפישה תלת מימדית.",
   "נדרש אמצעי שייסע בלמידה, יעורר את הסקרנות ויגביר את <strong>ההנאה</strong> והתובנות מהשילוב של תחומי הדעת השונים",
-  "אנו עדים ל\"תרבות הישיבה\" ולהיבטיה השלילים (השמנה, גידול במחלות הלב וכלי הדם, עצלות ועוד). היעדר ידע ומוטיבציה לפעילות גופנית גורמים אף הם לתופעות לוואי שליליות: אי מימוש מטרות האימון, פציעות בספורט, בזבוז זמן ולבסוף אף נשירה מפעילות גופנית. לכן החלטתי לפתח מדריך מולטימדי נרחב בשווי <strong>300,000$</strong> שיהיה <strong> שילוב מנצח </strong> בין הידע המחקרי האקדמי בתחומים של מדעי גוף האדם לבין עשייה מושכלת ונבונה שיובילו לאורך חיים בריא"
+  'אנו עדים ל"תרבות הישיבה" ולהיבטיה השלילים (השמנה, גידול במחלות הלב וכלי הדם, עצלות ועוד). היעדר ידע ומוטיבציה לפעילות גופנית גורמים אף הם לתופעות לוואי שליליות: אי מימוש מטרות האימון, פציעות בספורט, בזבוז זמן ולבסוף אף נשירה מפעילות גופנית. לכן החלטתי לפתח מדריך מולטימדי נרחב בשווי <strong>300,000$</strong> שיהיה <strong> שילוב מנצח </strong> בין הידע המחקרי האקדמי בתחומים של מדעי גוף האדם לבין עשייה מושכלת ונבונה שיובילו לאורך חיים בריא',
 ];
 
 const DVD = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { lng } = useParams();
   const dvdData = t("MultimediaInfo", { returnObjects: true });
   const dvdDataArray = Object.entries(dvdData).map(([key, value]) => value);
 
@@ -149,12 +141,14 @@ const DVD = () => {
 
       <MainContent>
         <Cover
+          lng={lng}
           src={img5}
           alt={"Yigal Pinchas multimadia 3 - יגאל פנחס מולטימדיה"}
         />
         <TextContent>
-          {dvdDataArray.map((paragraph) => (
+          {dvdDataArray.map((paragraph, idx) => (
             <Rational
+              key={idx}
               style={{ marginTop: "0" }}
               dangerouslySetInnerHTML={{ __html: paragraph }}
             ></Rational>

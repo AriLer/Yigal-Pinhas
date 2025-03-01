@@ -115,7 +115,6 @@ const Papers = () => {
     "קשיים ואתגרים בחינוך הגופני",
     'תקציר לסרטון האבולוציה של החנ"ג',
   ];
-  // console.log("articles: ", ArticlesArr);
 
   useEffect(() => {
     const ArticlesArr = Object.entries(
@@ -125,7 +124,7 @@ const Papers = () => {
   }, [t, i18n.language]);
 
   const handleClick = (id) => {
-    navigate(`/מאמרים/${id}`);
+    navigate(`/${i18n.language}/articles/${id}`);
   };
 
   const handleSearch = (e) => {
