@@ -103,7 +103,7 @@ const Footer = () => {
         </MainText>
         <Socials>
           {getNavLinks(i18n.language).map((link) => (
-            <Link key={link.attr} onClick={()=>navigate(`/${link.route}`)}>{t(link.attr)}</Link>
+            <Link key={link.attr} onClick={()=>navigate(`${i18n.language}/${link.route}`)}>{t(link.attr)}</Link>
           ))}
         </Socials>
       </Row>
