@@ -6,9 +6,9 @@ export const bookNodes = [
       "הכושר ההוליסטי מציג בפני הקורא גישה חדשנית וייחודית לפיתוח כושר גופני, השמה דגש על צרכיו השונים של המתאמן, לבד מאלו הפיזיים: צרכים רגשיים, רוחניים, שכליים, חברתיים ועוד. זאת לאור ההנחה כי לא די לשלוט בכל מרכיבי הכושר, בעקרונות האימון ובשיטותיו, אלא חשוב להכיר את מגוון הגורמים הפנימיים להנעה ולהתמדה בפעילות גופנית...",
     coverSrc: require("../assets/client-images/Books/Front-Covers/holistic-fitness.webp"),
     fullCover: require("../assets/client-images/Books/Full-Covers/Holistic-fitness.png"),
-    purchaseMethod: "url",
+    purchaseMethod: "contact",
     purchaseMessage:
-      "https://www.mendele.co.il/product_author/%D7%93%D7%A8-%D7%99%D7%92%D7%90%D7%9C-%D7%A4%D7%A0%D7%97%D7%A1/",
+    '<h3>לרכישה צרו קשר <br /> </h3> <p style="margin-top= 0rem; margin-bottom= 0.5rem; font-size=1.3rem; font-weight=400">yigalpinchas@gmail.com</p>',
     language: "he",
     paragraphs: [
       "<h4>כושר הוליסטי® – רקע ומבוא</h4>",
@@ -34,7 +34,7 @@ export const bookNodes = [
     fullCover: require("../assets/client-images/Books/Full-Covers/complete-guide.jpg"),
     purchaseMethod: "contact",
     purchaseMessage:
-      '<h3>לרכישה צרו קשר <br /> </h3> <p style="margin-top= 0rem; font-size=1.3rem; font-weight=400">yigalpinchas@gmail.com</p>',
+    '<h3>לרכישה צרו קשר <br /> </h3> <p style="margin-top= 0rem; margin-bottom= 0.5rem; font-size=1.3rem; font-weight=400">yigalpinchas@gmail.com</p>',
     language: "he",
     paragraphs: [
       "<h4>מהדורה 3 ומורחבת, 2019</h4>",
@@ -62,9 +62,9 @@ export const bookNodes = [
       "הספר הנוכחי מתמקד בדרכים לשיפור הגמישות הפיזית מתוך הנחה, שזו רק שלב התחלתי למימוש כלל ההיבטים של הגמישות; שריר גמיש הוא שריר סתגלן, כשם שניתן להגדיל את היקף התנועה כך ניתן להרחיב את גבולות החשיבה והדימיון.",
     coverSrc: require("../assets/client-images/Books/Front-Covers/stretching.webp"),
     fullCover: require("../assets/client-images/Books/Full-Covers/stretching.jpg"),
-    purchaseMethod: "url",
+    purchaseMethod: "contact",
     purchaseMessage:
-      "https://www.mendele.co.il/product_author/%D7%93%D7%A8-%D7%99%D7%92%D7%90%D7%9C-%D7%A4%D7%A0%D7%97%D7%A1/",
+    '<h3>לרכישה צרו קשר <br /> </h3> <p style="margin-top= 0rem; margin-bottom= 0.5rem; font-size=1.3rem; font-weight=400">yigalpinchas@gmail.com</p>',
     language: "he",
     paragraphs: [
       "<h4>פתח דבר</h4><p>מרכיב הגמישות ניתן לפיתוח בכל גיל והוא איננו מוגבל למין או לאוכלוסייה מסוימת, כל אחד יכול לשפר את מרכיב הגמישות בהיבטיו השונים:</p>",

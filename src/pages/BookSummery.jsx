@@ -13,15 +13,6 @@ const Section = styled.section`
   padding-top: 10%;
   overflow: hidden;
   min-height: 100vh;
-  /* direction: ${({ lng }) => (lng === "he" ? "rtl" : "ltr")}; */
-  /* text-align: ${({ lng }) => (lng === "he" ? "right" : "left")}; */
-  /* background-image: url(${BlobSVG}); */
-  /* background-size: fit; */
-  /* background-position: right; */
-  /* background- */
-  /* background-position-y: -35%; */
-  /* background-position-x: 0%; */
-  /* background-repeat: no-repeat; */
 
   &::before {
     content: "";
