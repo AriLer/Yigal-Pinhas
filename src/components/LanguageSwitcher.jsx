@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import EnglishFlag from "../assets/internal-images/english.png";
+import EnglishFlag from "../assets/internal-images/american-english.png";
 import HebrewFlag from "../assets/internal-images/israel.png";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
